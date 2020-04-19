@@ -1,0 +1,35 @@
+
+li{
+    a{
+        margin: 10px;
+        font-size: 1.3em;
+        color: white !important;
+        font-weight: bold;
+        font-family: $font-family-sans-serif;
+        text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+        &:hover{
+            color: rgb(255, 96, 96) !important;
+        }
+    } 
+}
+
+body {
+    height: 100vh;
+    background-image: url("/Trabajo-Final-FP/public/img/bg.jpg");
+}
+
+.py-4{
+    .container{
+        margin-top: 10%;
+        .card{
+            //background-color: rgba(230, 184, 115, 0.9);
+            background-image: url("/Trabajo-Final-FP/public/img/papyr.jpg");
+            color: black;
+            font-weight: bold;
+            font-size: 1.2em;
+            border-radius: 15px;
+            //text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;
+        }
+
+    }
+}

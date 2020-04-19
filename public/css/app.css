@@ -10882,3 +10882,33 @@ a.text-dark:focus {
   }
 }
 
+li a {
+  margin: 10px;
+  font-size: 1.3em;
+  color: white !important;
+  font-weight: bold;
+  font-family: "Nunito", sans-serif;
+  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+}
+
+li a:hover {
+  color: #ff6060 !important;
+}
+
+body {
+  height: 100vh;
+  background-image: url("/Trabajo-Final-FP/public/img/bg.jpg");
+}
+
+.py-4 .container {
+  margin-top: 10%;
+}
+
+.py-4 .container .card {
+  background-image: url("/Trabajo-Final-FP/public/img/papyr.jpg");
+  color: black;
+  font-weight: bold;
+  font-size: 1.2em;
+  border-radius: 15px;
+}
+
