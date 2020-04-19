@@ -4864,12 +4864,12 @@ input[type=button].btn-block {
 }
 
 .navbar-light .navbar-nav .nav-link {
-  color: rgba(0, 0, 0, 0.5);
+  color: white;
 }
 
 .navbar-light .navbar-nav .nav-link:hover,
 .navbar-light .navbar-nav .nav-link:focus {
-  color: rgba(0, 0, 0, 0.7);
+  color: red;
 }
 
 .navbar-light .navbar-nav .nav-link.disabled {
@@ -4884,16 +4884,16 @@ input[type=button].btn-block {
 }
 
 .navbar-light .navbar-toggler {
-  color: rgba(0, 0, 0, 0.5);
+  color: white;
   border-color: rgba(0, 0, 0, 0.1);
 }
 
 .navbar-light .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 0, 0, 0.5)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='white' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
 .navbar-light .navbar-text {
-  color: rgba(0, 0, 0, 0.5);
+  color: white;
 }
 
 .navbar-light .navbar-text a {
@@ -10885,14 +10885,9 @@ a.text-dark:focus {
 li a {
   margin: 10px;
   font-size: 1.3em;
-  color: white !important;
   font-weight: bold;
   font-family: "Nunito", sans-serif;
   text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
-}
-
-li a:hover {
-  color: #ff6060 !important;
 }
 
 body {
@@ -10900,11 +10895,11 @@ body {
   background-image: url("/Trabajo-Final-FP/public/img/bg.jpg");
 }
 
-.py-4 .container {
+.login-register {
   margin-top: 10%;
 }
 
-.py-4 .container .card {
+.login-register .card {
   background-image: url("/Trabajo-Final-FP/public/img/papyr.jpg");
   color: black;
   font-weight: bold;
