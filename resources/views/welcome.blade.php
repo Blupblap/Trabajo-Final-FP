@@ -17,7 +17,7 @@
                 font-weight: 200;
                 height: 100vh;
                 margin: 0;
-                background-image: url("{{ asset('img/bg.jpg') }}");
+                background-image: url("{{ asset('images/bg.jpg') }}");
             }
 
             .full-height {
