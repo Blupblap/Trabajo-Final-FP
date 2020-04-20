@@ -10892,7 +10892,7 @@ li a {
 
 body {
   height: 100vh;
-  background-image: url("/Trabajo-Final-FP/public/img/bg.jpg");
+  background-image: url(/images/bg.jpg?4087e87ded7881593e8ef4d99b05e214);
 }
 
 .login-register {
@@ -10900,7 +10900,7 @@ body {
 }
 
 .login-register .card {
-  background-image: url("/Trabajo-Final-FP/public/img/papyr.jpg");
+  background-image: url(/images/papyr.jpg?a1bb209feed8220fcf5627c8580456c9);
   color: black;
   font-weight: bold;
   font-size: 1.2em;
