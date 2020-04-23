@@ -4,7 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Building_Level extends Model {
+class BuildingLevel extends Model
+{
 
     /**
      * The table associated with the model.
@@ -16,15 +17,16 @@ class Building_Level extends Model {
     /**
      * Get the building that owns the building_level.
      */
-    public function building() {
-        return $this->belongsTo('App\Building');
+    public function building()
+    {
+        return $this->belongsTo(Building::class);
     }
 
     /**
      * Get the towns that belong to the building_level.
      */
-    public function towns() {
-        return $this->belongsToMany('App\Town', 'town_building_level');
+    public function towns()
+    {
+        return $this->belongsToMany(Town::class, 'town_building_level');
     }
-
 }

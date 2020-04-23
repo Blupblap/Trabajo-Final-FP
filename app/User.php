@@ -6,7 +6,8 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class User extends Authenticatable {
+class User extends Authenticatable
+{
 
     use Notifiable;
 
@@ -40,8 +41,8 @@ class User extends Authenticatable {
     /**
      * Get the town record associated with the user.
      */
-    public function town() {
-        return $this->hasOne('App\Town');
+    public function town()
+    {
+        return $this->hasOne(Town::class);
     }
-
 }

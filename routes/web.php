@@ -18,3 +18,7 @@ Route::get('/', function () {
 Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/town_name', 'TownsController@edit')->name('town_name');
+
+Route::post('/town_name', 'TownsController@update');
