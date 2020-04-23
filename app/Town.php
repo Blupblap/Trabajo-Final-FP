@@ -4,7 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Town extends Model {
+class Town extends Model
+{
 
     /**
      * The table associated with the model.
@@ -26,17 +27,15 @@ class Town extends Model {
      * @var array
      */
     protected $attributes = [
-        'food' => 100,
         'wood' => 100,
-        'stone' => 100,
-        'gold' => 100,
+        'stone' => 100
     ];
-    
+
     /**
      * The building_levels that belong to the town.
      */
-    public function building_levels()
+    public function buildingLevels()
     {
-        return $this->belongsToMany('App\Building_Level', 'town_building_level');
+        return $this->belongsToMany(BuildingLevel::class, 'town_building_level');
     }
 }
