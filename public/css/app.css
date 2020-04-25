@@ -10907,3 +10907,111 @@ body {
   border-radius: 15px;
 }
 
+.main-game {
+  border: 5px solid black;
+  height: 50rem;
+  border-radius: 10px;
+  background-image: url(/images/mapa.jpg?30631ccb0aae60901e8ef14120a0aa01);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  position: relative;
+}
+
+.main-game #woodsman_hut {
+  position: absolute;
+  left: 10%;
+  top: 7rem;
+  width: 20%;
+  height: 8rem;
+  background-color: rgba(15, 250, 7, 0.5);
+}
+
+.main-game #mine {
+  position: absolute;
+  left: 0%;
+  top: 22rem;
+  width: 15%;
+  height: 10rem;
+  background-color: rgba(138, 138, 126, 0.5);
+}
+
+.main-game #townhall {
+  position: absolute;
+  left: 65%;
+  top: 4rem;
+  width: 25%;
+  height: 12rem;
+  background-color: rgba(250, 7, 7, 0.5);
+}
+
+.main-game #fisherman {
+  position: absolute;
+  left: 87%;
+  top: 34rem;
+  width: 15%;
+  height: 5rem;
+  background-color: rgba(102, 92, 255, 0.5);
+}
+
+.main-game #potion_shop {
+  position: absolute;
+  left: 65%;
+  top: 37rem;
+  width: 15%;
+  height: 5rem;
+  background-color: rgba(206, 22, 144, 0.5);
+}
+
+.main-game #fisherman {
+  position: absolute;
+  left: 87%;
+  top: 34rem;
+  width: 15%;
+  height: 5rem;
+  background-color: rgba(102, 92, 255, 0.5);
+}
+
+.main-game #farmhouse {
+  position: absolute;
+  left: 65%;
+  top: 23rem;
+  width: 13%;
+  height: 7rem;
+  background-color: rgba(223, 134, 1, 0.5);
+}
+
+.main-game #merchant {
+  position: absolute;
+  left: 28%;
+  top: 19rem;
+  width: 13%;
+  height: 7rem;
+  background-color: rgba(229, 255, 0, 0.5);
+}
+
+#town_name {
+  width: 100%;
+  text-align: center;
+  font-size: 2em;
+  font-weight: bold;
+  color: white;
+  font-family: "Nunito", sans-serif;
+  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+}
+
+.resources {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  margin-top: 0.5rem;
+  padding: 0.3rem;
+  font-size: 1.3em;
+  font-weight: bold;
+  color: white;
+  font-family: "Nunito", sans-serif;
+  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+  background-color: rgba(2, 2, 2, 0.3);
+  height: 2rem;
+  width: 50%;
+}
+
