@@ -10917,6 +10917,17 @@ body {
   position: relative;
 }
 
+.main-game .slide {
+  display: none;
+  position: absolute;
+  top: 30rem;
+  left: 40%;
+  width: 20%;
+  height: 20rem;
+  background-color: #f1f1b5;
+  color: black;
+}
+
 .main-game #woodsman_hut {
   position: absolute;
   left: 10%;
