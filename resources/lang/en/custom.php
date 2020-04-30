@@ -5,5 +5,9 @@ return [
     'town_name_title' => 'Choose your town name',
     'town_name_label' => 'Town name',
     'town_name_confirm' => 'Confirm',
+    'food' => 'Food',
+    'wood' => 'Wood',
+    'stone' => 'Stone',
+    'gold' => 'Gold'
 
 ];
