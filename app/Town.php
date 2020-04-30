@@ -27,6 +27,7 @@ class Town extends Model
      * @var array
      */
     protected $attributes = [
+        'name' => 'NoName',
         'wood' => 100,
         'stone' => 100
     ];
