@@ -10920,12 +10920,29 @@ body {
 .main-game .slide {
   display: none;
   position: absolute;
-  top: 30rem;
+  bottom: 2rem;
   left: 40%;
   width: 20%;
   height: 20rem;
-  background-color: #f1f1b5;
-  color: black;
+  background-color: #a37a2d;
+  color: white;
+  font-family: "Nunito", sans-serif;
+  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+  padding: 1rem;
+}
+
+.main-game .nametag {
+  display: none;
+  background-color: #faffb1;
+  color: white;
+  width: 15%;
+  padding: 0.2rem;
+  border: 3px solid black;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+  font-family: "Nunito", sans-serif;
+  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
 }
 
 .main-game #woodsman_hut {
@@ -10937,6 +10954,12 @@ body {
   background-color: rgba(15, 250, 7, 0.5);
 }
 
+.main-game #nametag_woodsman {
+  position: absolute;
+  top: 4rem;
+  left: 12%;
+}
+
 .main-game #mine {
   position: absolute;
   left: 0%;
@@ -10944,6 +10967,12 @@ body {
   width: 15%;
   height: 10rem;
   background-color: rgba(138, 138, 126, 0.5);
+}
+
+.main-game #nametag_mine {
+  position: absolute;
+  top: 19rem;
+  left: 0%;
 }
 
 .main-game #townhall {
@@ -10955,13 +10984,25 @@ body {
   background-color: rgba(250, 7, 7, 0.5);
 }
 
+.main-game #nametag_TH {
+  position: absolute;
+  top: 1rem;
+  left: 70%;
+}
+
 .main-game #fisherman {
   position: absolute;
-  left: 87%;
+  left: 86%;
   top: 34rem;
   width: 15%;
   height: 5rem;
   background-color: rgba(102, 92, 255, 0.5);
+}
+
+.main-game #nametag_fisherman {
+  position: absolute;
+  top: 31rem;
+  left: 86%;
 }
 
 .main-game #potion_shop {
@@ -10973,13 +11014,10 @@ body {
   background-color: rgba(206, 22, 144, 0.5);
 }
 
-.main-game #fisherman {
+.main-game #nametag_potion {
   position: absolute;
-  left: 87%;
   top: 34rem;
-  width: 15%;
-  height: 5rem;
-  background-color: rgba(102, 92, 255, 0.5);
+  left: 65%;
 }
 
 .main-game #farmhouse {
@@ -10991,6 +11029,12 @@ body {
   background-color: rgba(223, 134, 1, 0.5);
 }
 
+.main-game #nametag_farmhouse {
+  position: absolute;
+  top: 20rem;
+  left: 64%;
+}
+
 .main-game #merchant {
   position: absolute;
   left: 28%;
@@ -10998,6 +11042,12 @@ body {
   width: 13%;
   height: 7rem;
   background-color: rgba(229, 255, 0, 0.5);
+}
+
+.main-game #nametag_merchant {
+  position: absolute;
+  top: 16rem;
+  left: 27%;
 }
 
 #town_name {

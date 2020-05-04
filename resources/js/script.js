@@ -1,11 +1,12 @@
 var buildings = $(".building");
+var nametags = $(".nametag");
 var currentInfo;
 var previousCurrentInfo;
 
 //Interactions at clicking and hovering over buildings
 $(buildings).each(function(i){
     $("#"+buildings[i].id).hover(function () {
-        //$("#"+popups[i].id).slideToggle("fast");
+        $("#"+nametags[i].id).toggle("200");
         console.log("temporal");
     })
     $("#"+buildings[i].id).click(function () {
@@ -20,6 +21,7 @@ $(document).click(function (event) {
     if (!$(event.target).closest($(".building")).length
     ){
         $('.slide').slideUp("200");
+        previousCurrentInfo = null;
     }
 });
 
@@ -27,10 +29,11 @@ $(document).click(function (event) {
 function showInfo(currentInfo){
     if(previousCurrentInfo == currentInfo){
         $(".slide").hide("200");
+        previousCurrentInfo = null;
     }else{
-        $(".slide").hide("200" , function(){
+        $(".slide").slideUp("200" , function(){
 
-            //Div content
+            //Div cwontent
             $("#buildingname").html(currentInfo);
     
     

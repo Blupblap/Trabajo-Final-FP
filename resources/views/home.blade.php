@@ -14,18 +14,26 @@
                 </div>
 
                 <div class="building" id="woodsman_hut">WOODSMAN</div>
+                <div class="nametag" id="nametag_woodsman">WOODSMAN HUT</div>
 
                 <div class="building" id="mine">MINE</div>
-                
+                <div class="nametag" id="nametag_mine">MINE</div>
+
                 <div class="building" id="townhall">TOWNHALL</div>
+                <div class="nametag" id="nametag_TH">TOWN HALL</div>
 
                 <div class="building" id="fisherman">FISHERMAN</div>
+                <div class="nametag" id="nametag_fisherman">FISHERMAN CABIN</div>
 
                 <div class="building" id="potion_shop">POTIONSHOP</div>
+                <div class="nametag" id="nametag_potion">POTION SHOP</div>
 
                 <div class="building" id="farmhouse">FARMHOUSE</div>
+                <div class="nametag" id="nametag_farmhouse">FARMHOUSE</div>
 
                 <div class="building" id="merchant">MERCHANT</div>
+                <div class="nametag" id="nametag_merchant">MERCHANT</div>
+
 
                 <div class="slide" id="slide">
                     Name: <span id="buildingname"></span><br>

@@ -39,12 +39,30 @@ body {
     .slide{
         display: none;
         position: absolute;
-        top: 30rem;
+        bottom: 2rem;
         left: 40%;
         width: 20%;
         height: 20rem;
-        background-color: rgb(241, 241, 181);
-        color: black;
+        background-color: rgb(163, 122, 45);
+        color: white;
+        font-family: $font-family-sans-serif;
+        text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+        padding: 1rem;
+        
+    }
+
+    .nametag{
+        display: none;
+        background-color: rgb(250, 255, 177);
+        color: white;
+        width: 15%;
+        padding: 0.2rem;
+        border: 3px solid black;
+        border-radius: 5px;
+        text-align: center;  
+        font-weight: bold;
+        font-family: $font-family-sans-serif;
+        text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
     }
 
     #woodsman_hut{
@@ -55,6 +73,12 @@ body {
         height: 8rem;
         background-color: rgba(15, 250, 7, 0.5);
     }
+    #nametag_woodsman{
+        position: absolute;
+        top: 4rem;
+        left: 12%;
+    }
+
     #mine{
         position: absolute;
         left: 0%;
@@ -63,6 +87,13 @@ body {
         height: 10rem;
         background-color: rgba(138, 138, 126, 0.5);
     }
+    #nametag_mine{
+        position: absolute;
+        top: 19rem;
+        left: 0%;
+    }
+
+
     #townhall{
         position: absolute;
         left: 65%;
@@ -71,14 +102,26 @@ body {
         height: 12rem;
         background-color: rgba(250, 7, 7, 0.5);
     }
+    #nametag_TH{
+        position: absolute;
+        top: 1rem;
+        left: 70%;
+    }
+
     #fisherman{
         position: absolute;
-        left: 87%;
+        left: 86%;
         top: 34rem;
         width: 15%;
         height: 5rem;
         background-color: rgba(102, 92, 255, 0.5);
     }
+    #nametag_fisherman{
+        position: absolute;
+        top: 31rem;
+        left: 86%;
+    }
+
     #potion_shop{
         position: absolute;
         left: 65%;
@@ -87,14 +130,12 @@ body {
         height: 5rem;
         background-color: rgba(206, 22, 144, 0.5);
     }
-    #fisherman{
+    #nametag_potion{
         position: absolute;
-        left: 87%;
         top: 34rem;
-        width: 15%;
-        height: 5rem;
-        background-color: rgba(102, 92, 255, 0.5);
+        left: 65%;
     }
+
     #farmhouse{
         position: absolute;
         left: 65%;
@@ -103,6 +144,12 @@ body {
         height: 7rem;
         background-color: rgba(223, 134, 1, 0.5);
     }
+    #nametag_farmhouse{
+        position: absolute;
+        top: 20rem;
+        left: 64%;
+    }
+
     #merchant{
         position: absolute;
         left: 28%;
@@ -111,6 +158,12 @@ body {
         height: 7rem;
         background-color: rgba(229, 255, 0, 0.5);
     }
+    #nametag_merchant{
+        position: absolute;
+        top: 16rem;
+        left: 27%;
+    }
+
 }
 
 #town_name{
