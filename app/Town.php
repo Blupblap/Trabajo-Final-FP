@@ -32,6 +32,10 @@ class Town extends Model
         'stone' => 100
     ];
 
+    protected $fillable = [
+        'name'
+    ];
+
     /**
      * The building_levels that belong to the town.
      */
