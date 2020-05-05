@@ -1,23 +1,42 @@
 @extends('layouts.app')
 
 @section('content')
-<div id="town_name">TOWN NAME</div>
+<div id="town_name">{{ Auth::user()->town->name }}</div>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12 col-lg-12 main-game">
-            <div class="card">
-                <div class="resources">
-                    <span id="amount_wood">Wood: xxx</span> 
-                    <span id="amount_stone">Stone: xxx</span> 
-                </div>
-                <div id="woodsman_hut">WOODSMAN</div>
-                <div id="mine">MINE</div>
-                <div id="townhall">TOWNHALL</div>
-                <div id="fisherman">FISHERMAN</div>
-                <div id="potion_shop">POTIONSHOP</div>
-                <div id="farmhouse">FARMHOUSE</div>
-                <div id="merchant">MERCHANT</div>
+
+            <div class="resources">
+                {{ __('custom.food') }}: <span id="amount_food"></span>
+                {{ __('custom.wood') }}: <span id="amount_wood"></span>
+                {{ __('custom.stone') }}: <span id="amount_stone"></span>
+                {{ __('custom.gold') }}: <span id="amount_gold"></span>
             </div>
+
+            @foreach (Auth::user()->town->buildingLevels as $buildingLevel)
+            <div class="building" id="{{ str_replace(' ', '_', strtolower($buildingLevel->building->name)) }}" data-id="{{ $buildingLevel->id }}">
+                <h6 class="building_name">{{ $buildingLevel->building->name }}</h3>
+            </div>
+            @endforeach
+
+            <div class="nametag"></div>
+
+            <div id="building_info">
+                {{ __('custom.name') }}: <span id="info_name"></span><br>
+                {{ __('custom.level') }}: <span id="info_level"></span><br>
+                {{ __('custom.power') }}: <span id="info_power"></span><br>
+                <hr>
+                {{ __('custom.next_level') }}: <span id="upgrade_level"></span><br>
+                {{ __('custom.food') }}: <span id="food_cost"></span><br>
+                {{ __('custom.wood') }}: <span id="wood_cost"></span><br>
+                {{ __('custom.stone') }}: <span id="stone_cost"></span><br>
+                {{ __('custom.gold') }}: <span id="gold_cost"></span><br>
+                {{ __('custom.th_level') }}: <span id="th_req"></span><br>
+                {{ __('custom.construction_duration') }}: <span id="construction_duration"></span><br>
+
+                <button>{{ __('custom.build') }}</button>
+            </div>
+
         </div>
     </div>
 </div>

@@ -8,6 +8,13 @@ return [
     'food' => 'Food',
     'wood' => 'Wood',
     'stone' => 'Stone',
-    'gold' => 'Gold'
+    'gold' => 'Gold',
+    'name' => 'Name',
+    'level' => 'Level',
+    'power' => 'Power',
+    'next_level' => 'Next level',
+    'th_level' => 'Town Hall level',
+    'construction_duration' => 'Construction duration',
+    'build' => 'build'
 
 ];
