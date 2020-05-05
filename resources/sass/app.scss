@@ -8,6 +8,9 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-// Variables
+// Mixins
+@import 'mixins';
+
+// Custom style
 @import 'style';
 

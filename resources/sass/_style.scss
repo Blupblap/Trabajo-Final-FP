@@ -1,12 +1,9 @@
-
-li{
-    a{
-        margin: 10px;
-        font-size: 1.3em;
+li {
+    a {
+        font-size: 1.3rem;
         font-weight: bold;
-        font-family: $font-family-sans-serif;
-        text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
-    } 
+        @include serif-shadow-black;
+    }
 }
 
 body {
@@ -14,20 +11,27 @@ body {
     background-image: url($bg-image);
 }
 
-.login-register{
+.login-register {
     margin-top: 10%;
-    .card{
-        //background-color: rgba(230, 184, 115, 0.9);
+    .card {
         background-image: url($imagen-papiro);
         color: black;
         font-weight: bold;
         font-size: 1.2em;
         border-radius: 15px;
-        //text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;
     }
 }
 
-.main-game{
+#town_name {
+    width: 100%;
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+    color: white;
+    @include serif-shadow-black;
+}
+
+.main-game {
     border: 5px solid black;
     height: 50rem;
     border-radius: 10px;
@@ -35,8 +39,25 @@ body {
     background-repeat: no-repeat;
     background-size: 100% 100%;
     position: relative;
-    
-    .slide{
+
+    .resources {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        margin-top: 0.5rem;
+        padding: 0.3rem;
+
+        font-size: 1.3em;
+        font-weight: bold;
+        color: white;
+        @include serif-shadow-black;
+
+        background-color: rgb(2, 2, 2, 0.3);
+        height: 2rem;
+        width: 50%;
+    }
+
+    #building_info {
         display: none;
         position: absolute;
         bottom: 2rem;
@@ -45,154 +66,82 @@ body {
         height: 20rem;
         background-color: rgb(163, 122, 45);
         color: white;
-        font-family: $font-family-sans-serif;
-        text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+        @include serif-shadow-black;
         padding: 1rem;
-        
     }
 
-    .nametag{
+    .building {
+        position: absolute;
+    }
+
+    .nametag {
         display: none;
+        position: absolute;
+        top: 3rem;
+        left: 1rem;
         background-color: rgb(250, 255, 177);
-        color: white;
-        width: 15%;
+        color: black;
         padding: 0.2rem;
         border: 3px solid black;
         border-radius: 5px;
-        text-align: center;  
+        text-align: center;
         font-weight: bold;
-        font-family: $font-family-sans-serif;
-        text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+        @include serif-shadow-black;
     }
 
-    #woodsman_hut{
-        position: absolute;
+    #woodsman_hut {
         left: 10%;
         top: 7rem;
         width: 20%;
         height: 8rem;
         background-color: rgba(15, 250, 7, 0.5);
     }
-    #nametag_woodsman{
-        position: absolute;
-        top: 4rem;
-        left: 12%;
-    }
 
-    #mine{
-        position: absolute;
+    #mine {
         left: 0%;
         top: 22rem;
         width: 15%;
         height: 10rem;
         background-color: rgba(138, 138, 126, 0.5);
     }
-    #nametag_mine{
-        position: absolute;
-        top: 19rem;
-        left: 0%;
-    }
 
-
-    #townhall{
-        position: absolute;
+    #town_hall {
         left: 65%;
         top: 4rem;
         width: 25%;
         height: 12rem;
         background-color: rgba(250, 7, 7, 0.5);
     }
-    #nametag_TH{
-        position: absolute;
-        top: 1rem;
-        left: 70%;
-    }
 
-    #fisherman{
-        position: absolute;
+    #fisherman_cabin {
         left: 86%;
         top: 34rem;
         width: 15%;
         height: 5rem;
         background-color: rgba(102, 92, 255, 0.5);
     }
-    #nametag_fisherman{
-        position: absolute;
-        top: 31rem;
-        left: 86%;
-    }
 
-    #potion_shop{
-        position: absolute;
+    #potion_maker {
         left: 65%;
         top: 37rem;
         width: 15%;
         height: 5rem;
         background-color: rgba(206, 22, 144, 0.5);
     }
-    #nametag_potion{
-        position: absolute;
-        top: 34rem;
-        left: 65%;
-    }
 
-    #farmhouse{
-        position: absolute;
+    #farmhouse {
         left: 65%;
         top: 23rem;
         width: 13%;
         height: 7rem;
         background-color: rgba(223, 134, 1, 0.5);
     }
-    #nametag_farmhouse{
-        position: absolute;
-        top: 20rem;
-        left: 64%;
-    }
 
-    #merchant{
-        position: absolute;
+    #merchant {
         left: 28%;
         top: 19rem;
         width: 13%;
         height: 7rem;
         background-color: rgba(229, 255, 0, 0.5);
     }
-    #nametag_merchant{
-        position: absolute;
-        top: 16rem;
-        left: 27%;
-    }
-
 }
-
-#town_name{
-    width: 100%;
-    text-align: center;
-    font-size: 2em;
-    font-weight: bold;
-    color: white;
-    font-family: $font-family-sans-serif;
-    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
-}
-
-
-.resources{
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    margin-top: 0.5rem;
-    padding: 0.3rem;
-
-    font-size: 1.3em;
-    font-weight: bold;
-    color: white;
-    font-family: $font-family-sans-serif;
-    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
-    
-    background-color: rgb(2, 2, 2, 0.3);
-    height: 2rem;
-    width: 50%;
-
-}
-

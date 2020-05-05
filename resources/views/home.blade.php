@@ -6,50 +6,36 @@
     <div class="row justify-content-center">
         <div class="col-md-12 col-lg-12 main-game">
 
-                <div class="resources">
-                    <span id="amount_food">{{ __('custom.food') }}: {{ Auth::user()->town->food }}</span>
-                    <span id="amount_wood">{{ __('custom.wood') }}: {{ Auth::user()->town->wood }}</span>
-                    <span id="amount_stone">{{ __('custom.stone') }}: {{ Auth::user()->town->stone }}</span>
-                    <span id="amount_gold">{{ __('custom.gold') }}: {{ Auth::user()->town->gold }}</span>
-                </div>
+            <div class="resources">
+                {{ __('custom.food') }}: <span id="amount_food"></span>
+                {{ __('custom.wood') }}: <span id="amount_wood"></span>
+                {{ __('custom.stone') }}: <span id="amount_stone"></span>
+                {{ __('custom.gold') }}: <span id="amount_gold"></span>
+            </div>
 
-                <div class="building" id="woodsman_hut">WOODSMAN</div>
-                <div class="nametag" id="nametag_woodsman">WOODSMAN HUT</div>
+            @foreach (Auth::user()->town->buildingLevels as $buildingLevel)
+            <div class="building" id="{{ str_replace(' ', '_', strtolower($buildingLevel->building->name)) }}" data-id="{{ $buildingLevel->id }}">
+                <h6 class="building_name">{{ $buildingLevel->building->name }}</h3>
+            </div>
+            @endforeach
 
-                <div class="building" id="mine">MINE</div>
-                <div class="nametag" id="nametag_mine">MINE</div>
+            <div class="nametag"></div>
 
-                <div class="building" id="townhall">TOWNHALL</div>
-                <div class="nametag" id="nametag_TH">TOWN HALL</div>
+            <div id="building_info">
+                {{ __('custom.name') }}: <span id="info_name"></span><br>
+                {{ __('custom.level') }}: <span id="info_level"></span><br>
+                {{ __('custom.power') }}: <span id="info_power"></span><br>
+                <hr>
+                {{ __('custom.next_level') }}: <span id="upgrade_level"></span><br>
+                {{ __('custom.food') }}: <span id="food_cost"></span><br>
+                {{ __('custom.wood') }}: <span id="wood_cost"></span><br>
+                {{ __('custom.stone') }}: <span id="stone_cost"></span><br>
+                {{ __('custom.gold') }}: <span id="gold_cost"></span><br>
+                {{ __('custom.th_level') }}: <span id="th_req"></span><br>
+                {{ __('custom.construction_duration') }}: <span id="construction_duration"></span><br>
 
-                <div class="building" id="fisherman">FISHERMAN</div>
-                <div class="nametag" id="nametag_fisherman">FISHERMAN CABIN</div>
-
-                <div class="building" id="potion_shop">POTIONSHOP</div>
-                <div class="nametag" id="nametag_potion">POTION SHOP</div>
-
-                <div class="building" id="farmhouse">FARMHOUSE</div>
-                <div class="nametag" id="nametag_farmhouse">FARMHOUSE</div>
-
-                <div class="building" id="merchant">MERCHANT</div>
-                <div class="nametag" id="nametag_merchant">MERCHANT</div>
-
-
-                <div class="slide" id="slide">
-                    Name: <span id="buildingname"></span><br>
-                    Level:<span id="buildinglevel"></span><br>
-                    Power:<span id="buildingpower"></span><br>
-                    <hr>
-                    NextLevel: <span id="upgradelevel"></span><br>
-                    Food: <span id="foodcost"></span><br>
-                    Wood: <span id="woodcost"></span><br>
-                    Stone: <span id="stonecost"></span><br>
-                    Gold: <span id="goldcost"></span><br>
-                    Town Hall level: <span id="threq"></span><br>
-                    Upgrade Time: <span id="upgradetime"></span><br>
-
-                    <button>UPGRADE</button>
-                </div>
+                <button>{{ __('custom.build') }}</button>
+            </div>
 
         </div>
     </div>

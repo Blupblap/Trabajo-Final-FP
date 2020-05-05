@@ -10883,11 +10883,10 @@ a.text-dark:focus {
 }
 
 li a {
-  margin: 10px;
-  font-size: 1.3em;
+  font-size: 1.3rem;
   font-weight: bold;
   font-family: "Nunito", sans-serif;
-  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+  text-shadow: -1px 0 black;
 }
 
 body {
@@ -10907,6 +10906,16 @@ body {
   border-radius: 15px;
 }
 
+#town_name {
+  width: 100%;
+  text-align: center;
+  font-size: 2em;
+  font-weight: bold;
+  color: white;
+  font-family: "Nunito", sans-serif;
+  text-shadow: -1px 0 black;
+}
+
 .main-game {
   border: 5px solid black;
   height: 50rem;
@@ -10917,150 +10926,7 @@ body {
   position: relative;
 }
 
-.main-game .slide {
-  display: none;
-  position: absolute;
-  bottom: 2rem;
-  left: 40%;
-  width: 20%;
-  height: 20rem;
-  background-color: #a37a2d;
-  color: white;
-  font-family: "Nunito", sans-serif;
-  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
-  padding: 1rem;
-}
-
-.main-game .nametag {
-  display: none;
-  background-color: #faffb1;
-  color: white;
-  width: 15%;
-  padding: 0.2rem;
-  border: 3px solid black;
-  border-radius: 5px;
-  text-align: center;
-  font-weight: bold;
-  font-family: "Nunito", sans-serif;
-  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
-}
-
-.main-game #woodsman_hut {
-  position: absolute;
-  left: 10%;
-  top: 7rem;
-  width: 20%;
-  height: 8rem;
-  background-color: rgba(15, 250, 7, 0.5);
-}
-
-.main-game #nametag_woodsman {
-  position: absolute;
-  top: 4rem;
-  left: 12%;
-}
-
-.main-game #mine {
-  position: absolute;
-  left: 0%;
-  top: 22rem;
-  width: 15%;
-  height: 10rem;
-  background-color: rgba(138, 138, 126, 0.5);
-}
-
-.main-game #nametag_mine {
-  position: absolute;
-  top: 19rem;
-  left: 0%;
-}
-
-.main-game #townhall {
-  position: absolute;
-  left: 65%;
-  top: 4rem;
-  width: 25%;
-  height: 12rem;
-  background-color: rgba(250, 7, 7, 0.5);
-}
-
-.main-game #nametag_TH {
-  position: absolute;
-  top: 1rem;
-  left: 70%;
-}
-
-.main-game #fisherman {
-  position: absolute;
-  left: 86%;
-  top: 34rem;
-  width: 15%;
-  height: 5rem;
-  background-color: rgba(102, 92, 255, 0.5);
-}
-
-.main-game #nametag_fisherman {
-  position: absolute;
-  top: 31rem;
-  left: 86%;
-}
-
-.main-game #potion_shop {
-  position: absolute;
-  left: 65%;
-  top: 37rem;
-  width: 15%;
-  height: 5rem;
-  background-color: rgba(206, 22, 144, 0.5);
-}
-
-.main-game #nametag_potion {
-  position: absolute;
-  top: 34rem;
-  left: 65%;
-}
-
-.main-game #farmhouse {
-  position: absolute;
-  left: 65%;
-  top: 23rem;
-  width: 13%;
-  height: 7rem;
-  background-color: rgba(223, 134, 1, 0.5);
-}
-
-.main-game #nametag_farmhouse {
-  position: absolute;
-  top: 20rem;
-  left: 64%;
-}
-
-.main-game #merchant {
-  position: absolute;
-  left: 28%;
-  top: 19rem;
-  width: 13%;
-  height: 7rem;
-  background-color: rgba(229, 255, 0, 0.5);
-}
-
-.main-game #nametag_merchant {
-  position: absolute;
-  top: 16rem;
-  left: 27%;
-}
-
-#town_name {
-  width: 100%;
-  text-align: center;
-  font-size: 2em;
-  font-weight: bold;
-  color: white;
-  font-family: "Nunito", sans-serif;
-  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
-}
-
-.resources {
+.main-game .resources {
   position: absolute;
   top: 0px;
   left: 0px;
@@ -11070,9 +10936,99 @@ body {
   font-weight: bold;
   color: white;
   font-family: "Nunito", sans-serif;
-  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+  text-shadow: -1px 0 black;
   background-color: rgba(2, 2, 2, 0.3);
   height: 2rem;
   width: 50%;
+}
+
+.main-game #building_info {
+  display: none;
+  position: absolute;
+  bottom: 2rem;
+  left: 40%;
+  width: 20%;
+  height: 20rem;
+  background-color: #a37a2d;
+  color: white;
+  font-family: "Nunito", sans-serif;
+  text-shadow: -1px 0 black;
+  padding: 1rem;
+}
+
+.main-game .building {
+  position: absolute;
+}
+
+.main-game .nametag {
+  display: none;
+  position: absolute;
+  top: 3rem;
+  left: 1rem;
+  background-color: #faffb1;
+  color: black;
+  padding: 0.2rem;
+  border: 3px solid black;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+  font-family: "Nunito", sans-serif;
+  text-shadow: -1px 0 black;
+}
+
+.main-game #woodsman_hut {
+  left: 10%;
+  top: 7rem;
+  width: 20%;
+  height: 8rem;
+  background-color: rgba(15, 250, 7, 0.5);
+}
+
+.main-game #mine {
+  left: 0%;
+  top: 22rem;
+  width: 15%;
+  height: 10rem;
+  background-color: rgba(138, 138, 126, 0.5);
+}
+
+.main-game #town_hall {
+  left: 65%;
+  top: 4rem;
+  width: 25%;
+  height: 12rem;
+  background-color: rgba(250, 7, 7, 0.5);
+}
+
+.main-game #fisherman_cabin {
+  left: 86%;
+  top: 34rem;
+  width: 15%;
+  height: 5rem;
+  background-color: rgba(102, 92, 255, 0.5);
+}
+
+.main-game #potion_maker {
+  left: 65%;
+  top: 37rem;
+  width: 15%;
+  height: 5rem;
+  background-color: rgba(206, 22, 144, 0.5);
+}
+
+.main-game #farmhouse {
+  left: 65%;
+  top: 23rem;
+  width: 13%;
+  height: 7rem;
+  background-color: rgba(223, 134, 1, 0.5);
+}
+
+.main-game #merchant {
+  left: 28%;
+  top: 19rem;
+  width: 13%;
+  height: 7rem;
+  background-color: rgba(229, 255, 0, 0.5);
 }
 

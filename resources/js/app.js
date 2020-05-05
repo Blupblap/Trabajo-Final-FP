@@ -1,2 +1,2 @@
 require('./bootstrap');
-require('./script');
+require('./scripts');
