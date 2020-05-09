@@ -37130,36 +37130,64 @@ var town_info = {
     'stone': 0,
     'gold': 0
   },
-  'buildings': [{
-    'id': 1,
-    'name': '',
-    'level': 0,
-    'power': 10,
-    'food': 100,
-    'wood': 100,
-    'stone': 0,
-    'gold': 0,
-    'town_hall': 2,
-    'duration': 1000
-  }]
+  'buildings': []
 };
 $(document).ready(function () {
-  //Interactions at clicking and hovering over buildings
-  $(".building").each(function (index) {
-    $(this).hover(function () {
-      $(".nametag").text($(this).children(".building_name").text());
-      $(".nametag").toggle(100);
-    });
-    $(this).click(function () {
-      showInfo($(this).attr('data-id'));
-    });
-  });
-  $(document).click(function (event) {
-    if (!$(event.target).closest($(".building")).length) {
-      $('#building_info').slideUp(300);
-      $('#building_info').attr("data-buildingid", "");
+  $.ajax({
+    type: 'GET',
+    url: '/ajax/town',
+    dataType: "json",
+    headers: {
+      'Access-Control-Allow-Origin': '*'
+    },
+    success: function success(data) {
+      console.log(data.food);
+      town_info.resources.food = data.food;
+      town_info.resources.wood = data.wood;
+      town_info.resources.stone = data.stone;
+      town_info.resources.gold = data.gold;
+      console.log(town_info.resources);
+      data.buildings.forEach(function (element) {
+        town_info.buildings.push({
+          'id': element.building_level_id,
+          'name': element.name,
+          'level': element.level,
+          'power': element.power,
+          'food': element.required_food,
+          'wood': element.required_wood,
+          'stone': element.required_stone,
+          'gold': element.required_gold,
+          'town_hall': element.level_down_hall,
+          'duration': element.update_duration,
+          'sprite': element.sprite
+        });
+        $(".main-game").append('<div class="building" id=' + element.name.toLowerCase().replace(' ', "_") + ' element-name=' + element.name + ' data-id=' + element.building_level_id + '><h6 class=' + element.name.toLowerCase().replace(' ', "_") + '>' + element.name + '</h3></div>');
+      }); //Interactions at clicking and hovering over buildings
+
+      $(".building").each(function (index) {
+        $(this).hover(function () {
+          $(".nametag").text($(this).attr("element-name"));
+          $(".nametag").show(100);
+        }, function () {
+          $(".nametag").hide(100);
+        });
+        $(this).click(function () {
+          showInfo($(this).attr('data-id'));
+        });
+      });
+      $(document).click(function (event) {
+        if (!$(event.target).closest($(".building")).length) {
+          $('#building_info').slideUp(300);
+          $('#building_info').attr("data-buildingid", "");
+        }
+      });
+      console.log(town_info.buildings);
+      paint();
+    },
+    error: function error(_error) {
+      console.log('Error: ' + _error);
     }
-  }); //Ajax 
+  });
 }); //Function that adds info to the info box
 
 function showInfo(buildingId) {
@@ -37171,10 +37199,37 @@ function showInfo(buildingId) {
   } else {
     $(info).slideUp(300, function () {
       //Aqui cambiar info
+      var array = town_info.buildings;
+      var x = array.findIndex(function (x) {
+        return x.id == buildingId;
+      });
+      console.log(x);
       $(info).attr("data-buildingid", buildingId);
+      $("#info_name").html(array[x].name);
+      $("#info_level").html(array[x].level);
+      $("#info_power").html(array[x].power);
+      $("#upgrade_level").html(array[x].level + 1);
+      $("#food_cost").html(array[x].food);
+      $("#wood_cost").html(array[x].wood);
+      $("#stone_cost").html(array[x].stone);
+      $("#gold_cost").html(array[x].gold);
+      $("#th_req").html(array[x].town_hall);
+      $("#construction_duration").html(array[x].duration);
       $(info).slideDown(300);
     });
   }
+}
+
+function paint() {
+  paintResources();
+}
+
+function paintResources() {
+  console.log(town_info.resources.food);
+  $("#amount_food").html(town_info.resources.food);
+  $("#amount_wood").html(town_info.resources.wood);
+  $("#amount_stone").html(town_info.resources.stone);
+  $("#amount_gold").html(town_info.resources.gold);
 }
 
 /***/ }),
@@ -37197,8 +37252,8 @@ function showInfo(buildingId) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\trabajo-final-fp\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\trabajo-final-fp\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\Trabajo-Final-FP\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\Trabajo-Final-FP\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
