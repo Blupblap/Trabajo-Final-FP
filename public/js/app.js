@@ -37125,6 +37125,26 @@ if (token) {
 
 var town_info = {};
 $(document).ready(function () {
+  paint();
+});
+
+function paint() {
+  paintResources();
+  paintBuildings();
+}
+
+function paintResources() {
+  $("#amount_food").html(town_info.food);
+  $("#amount_wood").html(town_info.wood);
+  $("#amount_stone").html(town_info.stone);
+  $("#amount_gold").html(town_info.gold);
+}
+
+function paintBuildings() {
+  getData();
+}
+
+function getData() {
   $.ajax({
     type: 'GET',
     url: '/ajax/town',
@@ -37136,35 +37156,36 @@ $(document).ready(function () {
       console.log('Error: ' + _error);
     },
     complete: function complete(data) {
-      data = data.responseJSON; //Creation of div buildings
-
-      data.buildings.forEach(function (element) {
+      //Creation of the initial divs
+      town_info.buildings.forEach(function (element) {
         $(".main-game").append('<div class="building" id=' + element.name.toLowerCase().replace(' ', "_") + ' data-element-name=' + element.name + ' data-id=' + element.building_level_id + '><h6 class=' + element.name.toLowerCase().replace(' ', "_") + '>' + element.name + '</h3></div>');
-      }); //Event interaction, click and hover
-
-      $(".building").each(function () {
-        $(this).hover(function () {
-          $(".nametag").text($(this).attr("data-element-name"));
-          $(".nametag").show(100);
-        }, function () {
-          $(".nametag").hide(100);
-        });
-        $(this).click(function () {
-          showInfo($(this).attr('data-id'));
-        });
-      }); //When clicking outside of a div, hide the info box
-
-      $(document).click(function (event) {
-        if (!$(event.target).closest($(".building")).length) {
-          $('#building_info').slideUp(300);
-          $('#building_info').attr("data-buildingid", "");
-        }
-      }); //Paint the resources
-
-      paint();
+      });
+      addEvents();
     }
   });
-}); //Function that adds info to the info box
+}
+
+function addEvents() {
+  $(".building").each(function () {
+    $(this).hover(function () {
+      $(".nametag").text($(this).attr("data-element-name"));
+      $(".nametag").show(100);
+    }, function () {
+      $(".nametag").hide(100);
+    });
+    $(this).click(function () {
+      showInfo($(this).attr('data-id'));
+    });
+  }); //When clicking outside of a div, hide the info box
+
+  $(document).click(function (event) {
+    if (!$(event.target).closest($(".building")).length) {
+      $('#building_info').slideUp(300);
+      $('#building_info').attr("data-buildingid", "");
+    }
+  });
+} //Function that adds info to the info box
+
 
 function showInfo(buildingId) {
   var info = $("#building_info");
@@ -37189,22 +37210,11 @@ function showInfo(buildingId) {
       $("#stone_cost").html(building.required_stone);
       $("#gold_cost").html(building.required_gold);
       $("#th_req").html(building.level_town_hall);
-      $("#construction_duration").html(building.update_duration); //Show the div finally
+      $("#construction_duration").html(building.upgrade_duration); //Show the div finally
 
       $(info).slideDown(300);
     });
   }
-}
-
-function paint() {
-  paintResources();
-}
-
-function paintResources() {
-  $("#amount_food").html(town_info.food);
-  $("#amount_wood").html(town_info.wood);
-  $("#amount_stone").html(town_info.stone);
-  $("#amount_gold").html(town_info.gold);
 }
 
 /***/ }),
