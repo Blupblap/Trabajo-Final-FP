@@ -3,9 +3,9 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
-use App\Http\Resources\BuildingLevel as BuildingLevelResource;
+use App\Http\Resources\BuildingLevelResource;
 
-class Town extends JsonResource
+class TownResource extends JsonResource
 {
     /**
      * Transform the resource into an array.

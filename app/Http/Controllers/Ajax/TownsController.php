@@ -2,15 +2,18 @@
 
 namespace App\Http\Controllers\Ajax;
 
-use App\Http\Controllers\Controller;
+use App\Actions\UpdateTownResources;
 use Illuminate\Http\Request;
-use App\Http\Resources\Town as TownResource;
-use Facade\Ignition\SolutionProviders\IncorrectValetDbCredentialsSolutionProvider;
+use App\Http\Resources\TownResource;
 
-class TownsController extends Controller
+final class TownsController
 {
-    public function show(Request $request)
+    public function show(Request $request, UpdateTownResources $updateTownResources)
     {
-        return response()->json(new TownResource($request->user()->town->load('buildingLevels', 'buildingLevels.building')));
+        $town = $request->user()->town;
+
+        $updateTownResources->__invoke($town, now());
+
+        return response()->json(new TownResource($town->load('buildingLevels', 'buildingLevels.building')));
     }
 }

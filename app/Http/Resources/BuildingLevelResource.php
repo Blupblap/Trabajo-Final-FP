@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class BuildingLevel extends JsonResource
+class BuildingLevelResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -21,6 +21,10 @@ class BuildingLevel extends JsonResource
                 return $this->building->name;
             }),
             "level" => $this->level,
+            "food_per_minute" => $this->food_per_minute,
+            "wood_per_minute" => $this->wood_per_minute,
+            "stone_per_minute" => $this->stone_per_minute,
+            "gold_per_minute" => $this->gold_per_minute,
             "required_food" => $this->required_food,
             "required_wood" => $this->required_wood,
             "required_stone" => $this->required_stone,
@@ -28,7 +32,7 @@ class BuildingLevel extends JsonResource
             "level_town_hall" => $this->level_town_hall,
             "power" => $this->power,
             "sprite" => $this->sprite,
-            "update_duration" => $this->update_duration,
+            "upgrade_duration" => $this->upgrade_duration,
         ];
     }
 }
