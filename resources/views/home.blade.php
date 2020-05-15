@@ -13,12 +13,6 @@
                 {{ __('custom.gold') }}: <span id="amount_gold"></span>
             </div>
 
-            @foreach (Auth::user()->town->buildingLevels as $buildingLevel)
-            <div class="building" id="{{ str_replace(' ', '_', strtolower($buildingLevel->building->name)) }}" data-id="{{ $buildingLevel->id }}">
-                <h6 class="building_name">{{ $buildingLevel->building->name }}</h3>
-            </div>
-            @endforeach
-
             <div class="nametag"></div>
 
             <div id="building_info">
