@@ -23,7 +23,7 @@ class BuildingLevel extends Model
         return $this->belongsToMany(Town::class, 'town_building_level');
     }
 
-    public function scopeUpdatesSomeResources($query)
+    public function scopeUpdatesResources($query)
     {
         return $query
             ->where(function ($query) {

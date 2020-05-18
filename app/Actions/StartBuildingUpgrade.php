@@ -3,25 +3,35 @@
 namespace App\Actions;
 
 use App\Building;
+use App\Exceptions\AlreadyUpgradingBuildingException;
 use App\Exceptions\NotEnoughResourcesException;
 use App\Exceptions\TownHallLevelException;
+use App\Exceptions\WrongBuildingIdException;
 use App\Town;
 use Carbon\Carbon;
 
 final class StartBuildingUpgrade
 {
-    private $upgradeTownResources;
+    private $updateTownBuildingsAndResources;
 
-    public function __construct(UpdateTownResources $upgradeTownResources)
+    public function __construct(UpdateTownBuildingsAndResources $updateTownBuildingsAndResources)
     {
-        $this->upgradeTownResources = $upgradeTownResources;
+        $this->updateTownBuildingsAndResources = $updateTownBuildingsAndResources;
     }
 
     public function __invoke(Town $town, int $id, Carbon $now)
     {
-        $this->upgradeTownResources->__invoke($town, $now);
+        $this->updateTownBuildingsAndResources->__invoke($town, $now);
 
         $buildingLevel = $town->buildingLevels()->whereBuildingLevelId($id)->first();
+
+        if ($buildingLevel === null) {
+            throw new WrongBuildingIdException();
+        }
+
+        if ($buildingLevel->pivot->upgrade_time !== null) {
+            throw new AlreadyUpgradingBuildingException();
+        }
 
         if (!$town->enoughResources($buildingLevel)) {
             throw new NotEnoughResourcesException();

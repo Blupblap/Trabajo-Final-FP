@@ -5,15 +5,13 @@ namespace App\Actions;
 use App\Town;
 use Carbon\Carbon;
 
-final class UpdateTownResources
+final class UpdateTownBuildingsAndResources
 {
     public function __invoke(Town $town, Carbon $now)
     {
-        // $now = Carbon::createFromFormat('d-m-Y H:i:s', '09-05-2020 18:25:00');
-
         $timeOffline = $now->diffInMinutes($town->last_checked);
 
-        $buildingLevels = $town->buildingLevels()->updatesSomeResources()->get();
+        $buildingLevels = $town->buildingLevels()->get();
 
         foreach ($buildingLevels as $buildingLevel) {
             if ($buildingLevel->pivot->upgrade_time === null || $now->diffInMinutes($buildingLevel->pivot->upgrade_time) < $buildingLevel->upgrade_duration) {
@@ -39,9 +37,7 @@ final class UpdateTownResources
             );
         }
 
-        if ($timeOffline > 0) {
-            $town->last_checked = $now;
-        }
+        $town->last_checked = $now->copy()->subSeconds($town->last_checked->diffInSeconds($now) % 60);
 
         $town->save();
     }
