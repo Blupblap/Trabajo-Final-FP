@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers\Ajax;
 
-use App\Actions\UpdateTownResources;
+use App\Actions\UpdateTownBuildingsAndResources;
 use Illuminate\Http\Request;
 use App\Http\Resources\TownResource;
 
 final class TownsController
 {
-    public function show(Request $request, UpdateTownResources $updateTownResources)
+    public function show(Request $request, UpdateTownBuildingsAndResources $updateTownBuildingsAndResources)
     {
         $town = $request->user()->town;
 
-        $updateTownResources->__invoke($town, now());
+        $updateTownBuildingsAndResources->__invoke($town, now());
 
         return response()->json(new TownResource($town->load('buildingLevels', 'buildingLevels.building')));
     }

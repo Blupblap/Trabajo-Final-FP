@@ -15,6 +15,10 @@ return [
     'next_level' => 'Next level',
     'th_level' => 'Town Hall level',
     'construction_duration' => 'Construction duration',
-    'build' => 'build'
+    'build' => 'Build',
+    'errorResources' => 'Not enough resources',
+    'errorTownHallLevel' => 'You need to upgrade your town hall',
+    'errorWrongBuildingId' => 'This town does not have a building with id :id',
+    'errorAlreadyUpgradingBuilding' => 'Building with id :id is already being upgraded'
 
 ];
