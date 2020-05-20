@@ -20,7 +20,7 @@ class CreateTownBuildingLevelTable extends Migration
             $table->primary(['town_id', 'building_level_id']);
             $table->foreign('town_id')
                 ->references('id')->on('town')
-                ->onDelete('restrict');
+                ->onDelete('cascade');
             $table->foreign('building_level_id')
                 ->references('id')->on('building_level')
                 ->onDelete('restrict');

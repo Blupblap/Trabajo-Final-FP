@@ -8,6 +8,8 @@ class BuildingLevel extends Model
 {
     protected $table = 'building_level';
 
+    public $timestamps = false;
+
     protected $casts = [
         'building_id' => 'integer',
         'level' => 'integer'
