@@ -11000,7 +11000,7 @@ body {
   background-color: rgba(250, 7, 7, 0.5);
 }
 
-.main-game #fisherman_cabin {
+.main-game #fishing_dock {
   left: 86%;
   top: 34rem;
   width: 15%;
@@ -11008,7 +11008,7 @@ body {
   background-color: rgba(102, 92, 255, 0.5);
 }
 
-.main-game #potion_maker {
+.main-game #alchemist {
   left: 65%;
   top: 37rem;
   width: 15%;
@@ -11016,7 +11016,7 @@ body {
   background-color: rgba(206, 22, 144, 0.5);
 }
 
-.main-game #farmhouse {
+.main-game #farm {
   left: 65%;
   top: 23rem;
   width: 13%;
