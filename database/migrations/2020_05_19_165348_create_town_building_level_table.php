@@ -16,7 +16,7 @@ class CreateTownBuildingLevelTable extends Migration
         Schema::create('town_building_level', function (Blueprint $table) {
             $table->unsignedBigInteger('town_id');
             $table->unsignedInteger('building_level_id');
-            $table->dateTime('upgrade_time', 0);
+            $table->dateTime('upgrade_time', 0)->nullable();
             $table->primary(['town_id', 'building_level_id']);
             $table->foreign('town_id')
                 ->references('id')->on('town')

@@ -13,7 +13,7 @@ class CreateTownOnUserRegistered
         $buildingLevelIds = BuildingLevel::whereLevel(0)->pluck('id');
         $town->buildingLevels()->attach(
             $buildingLevelIds->mapWithKeys(function ($id) {
-                return [$id => ['update_time' => null]];
+                return [$id => ['upgrade_time' => null]];
             })->toArray()
         );
     }
