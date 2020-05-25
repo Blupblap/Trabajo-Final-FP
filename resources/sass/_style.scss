@@ -70,6 +70,22 @@ body {
         padding: 1rem;
     }
 
+    #popup{
+        display: none;
+        position: absolute;
+        left: 40%;
+        top: 17rem;
+        background-color: rgb(163, 163, 163,0.5);
+        width: 15rem;
+        border-radius: 6px;
+
+        font-size: 1.3em;
+        font-weight: bold;
+        color: white;
+        @include serif-shadow-black;
+        text-align: center;
+    }
+
     .building {
         position: absolute;
     }

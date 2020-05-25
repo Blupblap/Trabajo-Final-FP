@@ -37127,7 +37127,7 @@ var town_info = {};
 $(document).ready(function () {
   getData();
   $(document).click(function (event) {
-    if (!$(event.target).closest($(".building")).length) {
+    if (!$(event.target).closest($(".building")).length && !$(event.target).closest($("#upgrade_button")).length) {
       $('#building_info').slideUp(300);
       $('#building_info').attr("data-buildingid", "");
     }
@@ -37164,8 +37164,10 @@ function paintResources() {
 }
 
 function paintBuildings() {
+  $(".building").remove();
   town_info.buildings.forEach(function (building) {
     buildingDiv = $(document.createElement("div")).addClass("building").attr("id", building.name.toLowerCase().replace(' ', "_")).attr("data-building-name", building.name).attr("data-id", building.building_level_id).append($(document.createElement("h6")).addClass(building.name.toLowerCase().replace(' ', "_")).text(building.name));
+    buildingDiv.attr("data-upgrading", building.upgrade_time_left > 0);
     addEvents(buildingDiv);
     $(".main-game").append(buildingDiv);
   });
@@ -37179,7 +37181,11 @@ function addEvents(building) {
     $(".nametag").hide(100);
   });
   building.click(function () {
-    showInfo($(this).attr('data-id'));
+    if (building.attr("data-upgrading") == "false") {
+      showInfo($(this).attr('data-id'));
+    } else {
+      showMessage("The building is being worked on!");
+    }
   });
 }
 
@@ -37211,6 +37217,37 @@ function showInfo(buildingId) {
   }
 }
 
+$("#upgrade_button").click(function () {
+  var id = $('#building_info').attr("data-buildingid");
+  $.ajax({
+    type: 'GET',
+    url: '/ajax/building/' + id,
+    dataType: "json",
+    success: function success(data) {
+      showMessage(data);
+      getData();
+    },
+    error: function error(_error2) {
+      console.log('Error: ' + _error2);
+    }
+  });
+});
+
+function showMessage(data) {
+  if (data === true) {
+    $("#popup").css("background-color", "green");
+    $("#popup").html("Success!");
+  } else {
+    $("#popup").css("background-color", "red");
+    $("#popup").html("You can't do that!");
+  }
+
+  $("#popup").show();
+  setTimeout(function () {
+    $("#popup").hide();
+  }, 3000);
+}
+
 /***/ }),
 
 /***/ "./resources/sass/app.scss":
@@ -37231,8 +37268,8 @@ function showInfo(buildingId) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\trabajo-final-fp\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\trabajo-final-fp\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\Trabajo-Final-FP\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\Trabajo-Final-FP\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

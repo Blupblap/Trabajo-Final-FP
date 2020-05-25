@@ -10956,6 +10956,22 @@ body {
   padding: 1rem;
 }
 
+.main-game #popup {
+  display: none;
+  position: absolute;
+  left: 40%;
+  top: 17rem;
+  background-color: rgba(163, 163, 163, 0.5);
+  width: 15rem;
+  border-radius: 6px;
+  font-size: 1.3em;
+  font-weight: bold;
+  color: white;
+  font-family: "Nunito", sans-serif;
+  text-shadow: -1px 0 black;
+  text-align: center;
+}
+
 .main-game .building {
   position: absolute;
 }

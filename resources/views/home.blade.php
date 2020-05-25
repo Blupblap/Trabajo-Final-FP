@@ -14,6 +14,7 @@
             </div>
 
             <div class="nametag"></div>
+            <div id="popup"></div>
 
             <div id="building_info">
                 {{ __('custom.name') }}: <span id="info_name"></span><br>
@@ -28,7 +29,7 @@
                 {{ __('custom.th_level') }}: <span id="th_req"></span><br>
                 {{ __('custom.construction_duration') }}: <span id="construction_duration"></span><br>
 
-                <button>{{ __('custom.build') }}</button>
+                <button id="upgrade_button">{{ __('custom.build') }}</button>
             </div>
 
         </div>
