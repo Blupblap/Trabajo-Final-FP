@@ -37125,13 +37125,15 @@ if (token) {
 
 var town_info = {};
 $(document).ready(function () {
-  getData();
-  $(document).click(function (event) {
-    if (!$(event.target).closest($(".building")).length) {
-      $('#building_info').slideUp(300);
-      $('#building_info').attr("data-buildingid", "");
-    }
-  });
+  if ($(".main-game").length) {
+    getData();
+    $(document).click(function (event) {
+      if (!$(event.target).closest($(".building")).length) {
+        $('#building_info').slideUp(300);
+        $('#building_info').attr("data-buildingid", "");
+      }
+    });
+  }
 });
 
 function getData() {
@@ -37141,6 +37143,7 @@ function getData() {
     dataType: "json",
     success: function success(data) {
       town_info = data;
+      animateResources();
     },
     error: function error(_error) {
       console.log('Error: ' + _error);
@@ -37149,6 +37152,22 @@ function getData() {
       paint();
     }
   });
+}
+
+function animateResources() {
+  if (!town_info.buildings) {
+    return;
+  }
+
+  setInterval(function () {
+    town_info.buildings.forEach(function (building) {
+      town_info.food += building.food_per_minute;
+      town_info.wood += building.wood_per_minute;
+      town_info.stone += building.stone_per_minute;
+      town_info.gold += building.gold_per_minute;
+    });
+    paintResources();
+  }, 60000);
 }
 
 function paint() {
@@ -37164,6 +37183,10 @@ function paintResources() {
 }
 
 function paintBuildings() {
+  if (!town_info.buildings) {
+    return;
+  }
+
   town_info.buildings.forEach(function (building) {
     buildingDiv = $(document.createElement("div")).addClass("building").attr("id", building.name.toLowerCase().replace(' ', "_")).attr("data-building-name", building.name).attr("data-id", building.building_level_id).append($(document.createElement("h6")).addClass(building.name.toLowerCase().replace(' ', "_")).text(building.name));
     addEvents(buildingDiv);
