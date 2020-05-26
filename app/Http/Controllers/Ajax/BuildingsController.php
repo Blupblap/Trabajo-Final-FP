@@ -4,16 +4,19 @@ namespace App\Http\Controllers\Ajax;
 
 use App\Actions\StartBuildingUpgrade;
 use App\Exceptions\AlreadyUpgradingBuildingException;
+use App\Exceptions\NextLevelNotExists;
 use App\Exceptions\NotEnoughResourcesException;
 use App\Exceptions\TownHallLevelException;
 use App\Exceptions\WrongBuildingIdException;
-use App\Town;
+use App\Http\Resources\TownResource;
 use Illuminate\Http\Request;
 
 final class BuildingsController
 {
-    public function update(Request $request, int $id, StartBuildingUpgrade $startBuildingUpgrade)
+    public function update(Request $request, StartBuildingUpgrade $startBuildingUpgrade)
     {
+        $id = $request->building_level_id;
+
         $town = $request->user()->town;
 
         try {
@@ -26,6 +29,10 @@ final class BuildingsController
             return response()->json(
                 ['error' => __('custom.errorWrongBuildingId', ['id' => $id])]
             );
+        } catch (NextLevelNotExists $e) {
+            return response()->json(
+                ['error' => __('custom.errorNextLevelNotExists', ['id' => $id])]
+            );
         } catch (NotEnoughResourcesException $e) {
             return response()->json(
                 ['error' => __('custom.errorResources')]
@@ -36,6 +43,6 @@ final class BuildingsController
             );
         }
 
-        return response()->json(true);
+        return response()->json(new TownResource($town->load('buildingLevels', 'buildingLevels.building')));
     }
 }

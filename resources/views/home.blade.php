@@ -28,10 +28,12 @@
                 {{ __('custom.th_level') }}: <span id="th_req"></span><br>
                 {{ __('custom.construction_duration') }}: <span id="construction_duration"></span><br>
 
-                <button>{{ __('custom.build') }}</button>
+                <button id="upgrade_button">{{ __('custom.build') }}</button>
             </div>
 
         </div>
     </div>
+</div>
+<div id="game_alert" class="alert alert-dismissible text-center" data-default-error="{{ __('custom.errorDefault') }}">
 </div>
 @endsection
