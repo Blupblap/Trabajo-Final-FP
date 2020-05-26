@@ -37123,15 +37123,28 @@ if (token) {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-var town_info = {};
+var town_info;
+var ERROR_DEFAULT = $("#game_alert").attr("data-default-error");
+var FREQUENCY_RESOURCES_UPDATE = 60000;
 $(document).ready(function () {
-  getData();
-  $(document).click(function (event) {
-    if (!$(event.target).closest($(".building")).length && !$(event.target).closest($("#upgrade_button")).length) {
-      $('#building_info').slideUp(300);
-      $('#building_info').attr("data-buildingid", "");
+  $.ajaxSetup({
+    headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
     }
   });
+
+  if ($(".main-game").length) {
+    getData();
+    $(document).click(function (event) {
+      if (!$(event.target).closest($(".building")).length) {
+        $('#building_info').slideUp(300);
+        $('#building_info').attr("data-buildingid", "");
+      }
+    });
+    $("#upgrade_button").click(function () {
+      upgradeBuilding($('#building_info').attr("data-buildingid"));
+    });
+  }
 });
 
 function getData() {
@@ -37142,13 +37155,30 @@ function getData() {
     success: function success(data) {
       town_info = data;
     },
-    error: function error(_error) {
-      console.log('Error: ' + _error);
+    error: function error(jqXHR, textStatus, errorThrown) {
+      showMessage('Error: ' + textStatus + '. ' + errorThrown);
     },
     complete: function complete() {
+      if (!town_info || !town_info.buildings || !town_info.buildings.length) {
+        return;
+      }
+
       paint();
+      animateResources();
     }
   });
+}
+
+function animateResources() {
+  setInterval(function () {
+    town_info.buildings.forEach(function (building) {
+      town_info.food += building.food_per_minute;
+      town_info.wood += building.wood_per_minute;
+      town_info.stone += building.stone_per_minute;
+      town_info.gold += building.gold_per_minute;
+    });
+    paintResources();
+  }, FREQUENCY_RESOURCES_UPDATE);
 }
 
 function paint() {
@@ -37166,8 +37196,7 @@ function paintResources() {
 function paintBuildings() {
   $(".building").remove();
   town_info.buildings.forEach(function (building) {
-    buildingDiv = $(document.createElement("div")).addClass("building").attr("id", building.name.toLowerCase().replace(' ', "_")).attr("data-building-name", building.name).attr("data-id", building.building_level_id).append($(document.createElement("h6")).addClass(building.name.toLowerCase().replace(' ', "_")).text(building.name));
-    buildingDiv.attr("data-upgrading", building.upgrade_time_left > 0);
+    buildingDiv = $(document.createElement("div")).addClass("building").attr("id", building.name.toLowerCase().replace(' ', "_")).attr("data-building-name", building.name).attr("data-id", building.building_level_id).attr("data-upgrading", building.upgrade_time_left > 0).append($(document.createElement("h6")).addClass(building.name.toLowerCase().replace(' ', "_")).text(building.name));
     addEvents(buildingDiv);
     $(".main-game").append(buildingDiv);
   });
@@ -37175,76 +37204,91 @@ function paintBuildings() {
 
 function addEvents(building) {
   building.hover(function () {
-    $(".nametag").text($(this).attr("data-building-name"));
-    $(".nametag").show(100);
+    $(".nametag").text($(this).attr("data-building-name")).show(100);
   }, function () {
     $(".nametag").hide(100);
   });
   building.click(function () {
-    if (building.attr("data-upgrading") == "false") {
-      showInfo($(this).attr('data-id'));
-    } else {
-      showMessage("The building is being worked on!");
-    }
+    toggleBuildingInfo($(this).attr('data-id'));
   });
 }
 
-function showInfo(buildingId) {
-  var info = $("#building_info");
+function toggleBuildingInfo(buildingId) {
+  if ($("#building_info").attr("data-buildingid") == buildingId) {
+    hideBuildingInfo();
+    return;
+  }
 
-  if ($(info).attr("data-buildingid") == buildingId) {
-    $(info).attr("data-buildingid", "");
-    $(info).slideUp(300);
-  } else {
-    $(info).slideUp(300, function () {
-      var buildings = town_info.buildings;
-      var building = buildings.find(function (b) {
-        return b.building_level_id == buildingId;
-      });
-      $(info).attr("data-buildingid", buildingId);
-      $("#info_name").html(building.name);
-      $("#info_level").html(building.level);
-      $("#info_power").html(building.power);
-      $("#upgrade_level").html(building.level + 1);
-      $("#food_cost").html(building.required_food);
-      $("#wood_cost").html(building.required_wood);
-      $("#stone_cost").html(building.required_stone);
-      $("#gold_cost").html(building.required_gold);
-      $("#th_req").html(building.level_town_hall);
-      $("#construction_duration").html(building.upgrade_duration);
-      $(info).slideDown(300);
+  showBuildingInfo(buildingId);
+}
+
+function showBuildingInfo(buildingId) {
+  $("#building_info").slideUp(300, function () {
+    var building = town_info.buildings.find(function (b) {
+      return b.building_level_id == buildingId;
     });
-  }
+    $("#info_name").html(building.name);
+    $("#info_level").html(building.level);
+    $("#info_power").html(building.power);
+    $("#upgrade_level").html(building.level + 1);
+    $("#food_cost").html(building.required_food);
+    $("#wood_cost").html(building.required_wood);
+    $("#stone_cost").html(building.required_stone);
+    $("#gold_cost").html(building.required_gold);
+    $("#th_req").html(building.level_town_hall);
+    $("#construction_duration").html(building.upgrade_duration);
+    $(this).attr("data-buildingid", buildingId).slideDown(300);
+  });
 }
 
-$("#upgrade_button").click(function () {
-  var id = $('#building_info').attr("data-buildingid");
-  $.ajax({
-    type: 'GET',
-    url: '/ajax/building/' + id,
-    dataType: "json",
-    success: function success(data) {
-      showMessage(data);
-      getData();
-    },
-    error: function error(_error2) {
-      console.log('Error: ' + _error2);
-    }
-  });
-});
+function hideBuildingInfo() {
+  $("#building_info").attr("data-buildingid", "").slideUp(300);
+}
 
-function showMessage(data) {
-  if (data === true) {
-    $("#popup").css("background-color", "green");
-    $("#popup").html("Success!");
-  } else {
-    $("#popup").css("background-color", "red");
-    $("#popup").html("You can't do that!");
+function upgradeBuilding(id) {
+  if (town_info.buildings.find(function (building) {
+    return building.building_level_id == id;
+  }).upgrade_time_left > 0) {
+    showMessage();
+    return;
   }
 
-  $("#popup").show();
+  var url = '/ajax/building';
+  var dataToSend = {
+    'building_level_id': id
+  };
+  $.ajax({
+    type: 'PUT',
+    url: url,
+    data: dataToSend,
+    dataType: 'json',
+    success: function success(data) {
+      if (data.error) {
+        showMessage(data.error);
+        return;
+      }
+
+      town_info = data;
+    },
+    error: function error(jqXHR, textStatus, errorThrown) {
+      showMessage('Error: ' + textStatus + '; ' + errorThrown);
+    },
+    complete: function complete() {
+      if (!town_info || !town_info.buildings || !town_info.buildings.length) {
+        return;
+      }
+
+      paint();
+    }
+  });
+}
+
+function showMessage() {
+  var msg = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : ERROR_DEFAULT;
+  var isError = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+  $("#game_alert").html(msg).addClass(isError ? "alert-danger" : "alert-success").fadeIn();
   setTimeout(function () {
-    $("#popup").hide();
+    return $("#game_alert").fadeOut();
   }, 3000);
 }
 
@@ -37268,8 +37312,8 @@ function showMessage(data) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\Trabajo-Final-FP\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\Trabajo-Final-FP\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\trabajo-final-fp\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\trabajo-final-fp\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

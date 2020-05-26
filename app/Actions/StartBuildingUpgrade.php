@@ -4,6 +4,7 @@ namespace App\Actions;
 
 use App\Building;
 use App\Exceptions\AlreadyUpgradingBuildingException;
+use App\Exceptions\NextLevelNotExists;
 use App\Exceptions\NotEnoughResourcesException;
 use App\Exceptions\TownHallLevelException;
 use App\Exceptions\WrongBuildingIdException;
@@ -25,22 +26,26 @@ final class StartBuildingUpgrade
 
         $buildingLevel = $town->buildingLevels()->whereBuildingLevelId($id)->first();
 
-        if ($buildingLevel === null) {
+        if (is_null($buildingLevel)) {
             throw new WrongBuildingIdException();
         }
 
-        if ($buildingLevel->pivot->upgrade_time !== null) {
-            throw new AlreadyUpgradingBuildingException();
+        if (is_null($buildingLevel->getNext())) {
+            throw new NextLevelNotExists();
         }
 
-        if (!$town->enoughResources($buildingLevel)) {
-            throw new NotEnoughResourcesException();
+        if (isset($buildingLevel->pivot->upgrade_time)) {
+            throw new AlreadyUpgradingBuildingException();
         }
 
         $townhallLevel = $town->buildingLevels()->whereBuildingId(Building::TOWNHALL)->first()->level;
 
         if ($buildingLevel->level_town_hall > $townhallLevel) {
             throw new TownHallLevelException();
+        }
+
+        if (!$town->enoughResources($buildingLevel)) {
+            throw new NotEnoughResourcesException();
         }
 
         $town->startBuildingUpgrade($buildingLevel, $now);

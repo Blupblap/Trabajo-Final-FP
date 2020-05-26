@@ -1,14 +1,14 @@
+body {
+    height: 100vh;
+    background-image: url($bg-image);
+}
+
 li {
     a {
         font-size: 1.3rem;
         font-weight: bold;
-        @include serif-shadow-black;
+        text-shadow: $text-shadow-black;
     }
-}
-
-body {
-    height: 100vh;
-    background-image: url($bg-image);
 }
 
 .login-register {
@@ -22,13 +22,22 @@ body {
     }
 }
 
+#game_alert {
+    display: none;
+    position: absolute;
+    left: 40%;
+    top: 40%;
+    font-size: 1.3em;
+    text-shadow: $text-shadow-black;
+}
+
 #town_name {
     width: 100%;
     text-align: center;
     font-size: 2em;
     font-weight: bold;
     color: white;
-    @include serif-shadow-black;
+    text-shadow: $text-shadow-black;
 }
 
 .main-game {
@@ -50,7 +59,7 @@ body {
         font-size: 1.3em;
         font-weight: bold;
         color: white;
-        @include serif-shadow-black;
+        text-shadow: $text-shadow-black;
 
         background-color: rgb(2, 2, 2, 0.3);
         height: 2rem;
@@ -66,24 +75,8 @@ body {
         height: 20rem;
         background-color: rgb(163, 122, 45);
         color: white;
-        @include serif-shadow-black;
+        text-shadow: $text-shadow-black;
         padding: 1rem;
-    }
-
-    #popup{
-        display: none;
-        position: absolute;
-        left: 40%;
-        top: 17rem;
-        background-color: rgb(163, 163, 163,0.5);
-        width: 15rem;
-        border-radius: 6px;
-
-        font-size: 1.3em;
-        font-weight: bold;
-        color: white;
-        @include serif-shadow-black;
-        text-align: center;
     }
 
     .building {
@@ -102,7 +95,7 @@ body {
         border-radius: 5px;
         text-align: center;
         font-weight: bold;
-        @include serif-shadow-black;
+        text-shadow: $text-shadow-black;
     }
 
     #woodsman_hut {

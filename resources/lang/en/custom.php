@@ -19,6 +19,8 @@ return [
     'errorResources' => 'Not enough resources',
     'errorTownHallLevel' => 'You need to upgrade your town hall',
     'errorWrongBuildingId' => 'This town does not have a building with id :id',
-    'errorAlreadyUpgradingBuilding' => 'Building with id :id is already being upgraded'
+    'errorAlreadyUpgradingBuilding' => 'Building with id :id is already being upgraded',
+    'errorNextLevelNotExists' => 'This building is already at max level',
+    'errorDefault' => 'Can\'t do that right now!'
 
 ];

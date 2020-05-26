@@ -14,7 +14,6 @@
             </div>
 
             <div class="nametag"></div>
-            <div id="popup"></div>
 
             <div id="building_info">
                 {{ __('custom.name') }}: <span id="info_name"></span><br>
@@ -34,5 +33,7 @@
 
         </div>
     </div>
+</div>
+<div id="game_alert" class="alert alert-dismissible text-center" data-default-error="{{ __('custom.errorDefault') }}">
 </div>
 @endsection
