@@ -3,9 +3,9 @@ $body-bg: #f8fafc;
 
 // Typography
 $font-family-sans-serif: 'Nunito', sans-serif;
-$font-size-base: 0.9rem;
-$line-height-base: 1.6;
-
+$font-size-larger: 1.2rem;
+$input-btn-font-size: $font-size-larger;
+$dropdown-font-size: $font-size-larger;
 
 // Colors
 $blue: #3490dc;
@@ -19,11 +19,11 @@ $green: #38c172;
 $teal: #4dc0b5;
 $cyan: #6cb2eb;
 
-$text-shadow-black: -1px 0 black;
+$text-shadow-black: -1px -1px black;
 
 $bg-image: "../images/bg.jpg";
 $game-bg: "../images/mapa.jpg";
 $imagen-papiro: "../images/papyr.jpg";
 
 $navbar-light-color: white;
-$navbar-light-hover-color: red;
+$navbar-light-hover-color: $red;

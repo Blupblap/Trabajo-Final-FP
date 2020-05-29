@@ -37142,7 +37142,14 @@ $(document).ready(function () {
       }
     });
     $("#upgrade_button").click(function () {
-      upgradeBuilding($('#building_info').attr("data-buildingid"));
+      var id = $('#building_info').attr("data-buildingid");
+
+      if ($('.building[data-id="' + id + '"]').attr('data-upgrading') === 'true') {
+        showMessage();
+        return;
+      }
+
+      upgradeBuilding(id);
     });
   }
 });
@@ -37229,14 +37236,31 @@ function showBuildingInfo(buildingId) {
     });
     $("#info_name").html(building.name);
     $("#info_level").html(building.level);
+    $("#food_per_minute").html(building.food_per_minute);
+    $("#wood_per_minute").html(building.wood_per_minute);
+    $("#stone_per_minute").html(building.stone_per_minute);
+    $("#gold_per_minute").html(building.gold_per_minute);
     $("#info_power").html(building.power);
-    $("#upgrade_level").html(building.level + 1);
-    $("#food_cost").html(building.required_food);
-    $("#wood_cost").html(building.required_wood);
-    $("#stone_cost").html(building.required_stone);
-    $("#gold_cost").html(building.required_gold);
-    $("#th_req").html(building.level_town_hall);
-    $("#construction_duration").html(building.upgrade_duration);
+
+    if (building.has_next) {
+      $('#next_level').show();
+      $("#food_cost").html(building.required_food);
+      $("#wood_cost").html(building.required_wood);
+      $("#stone_cost").html(building.required_stone);
+      $("#gold_cost").html(building.required_gold);
+      $("#th_req").html(building.level_town_hall);
+      $("#construction_duration").html(formatTime(building.upgrade_duration * 60));
+    } else {
+      $('#next_level').hide();
+    }
+
+    if (building.upgrade_time_left > 0) {
+      $('#time_left_container').show();
+      $('#time_left').html(formatTime(building.upgrade_time_left));
+    } else {
+      $('#time_left_container').hide();
+    }
+
     $(this).attr("data-buildingid", buildingId).slideDown(300);
   });
 }
@@ -37245,14 +37269,17 @@ function hideBuildingInfo() {
   $("#building_info").attr("data-buildingid", "").slideUp(300);
 }
 
-function upgradeBuilding(id) {
-  if (town_info.buildings.find(function (building) {
-    return building.building_level_id == id;
-  }).upgrade_time_left > 0) {
-    showMessage();
-    return;
-  }
+function formatTime(timeSeconds) {
+  var seconds = timeSeconds % 60;
+  var secondsString = seconds > 0 ? seconds + "s" : "";
+  var minutes = (timeSeconds - seconds) / 60;
+  var minutesString = minutes % 60 > 0 ? minutes % 60 + "min" : "";
+  var hours = (minutes - minutes % 60) / 60;
+  var hoursString = hours > 0 ? hours + "h" : "";
+  return hoursString + " " + minutesString + " " + secondsString;
+}
 
+function upgradeBuilding(id) {
   var url = '/ajax/building';
   var dataToSend = {
     'building_level_id': id
