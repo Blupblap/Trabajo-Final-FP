@@ -53,7 +53,7 @@
                                 </div>
                                 <div class="col-6">
                                     {{ __('custom.th_level') }}: <span id="th_req"></span><br>
-                                    {{ __('custom.construction_duration') }}: <span id="construction_duration"></span>
+                                    {{ __('custom.construction_duration') }}: <span id="construction_duration"></span><br>
                                     <span id="time_left_container">{{ __('custom.time_left') }}: <span id="time_left"></span><span>
                                 </div>
                             </div>
