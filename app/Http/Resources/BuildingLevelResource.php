@@ -35,6 +35,7 @@ class BuildingLevelResource extends JsonResource
             "sprite" => $this->sprite,
             "upgrade_duration" => $this->upgrade_duration,
             "upgrade_time_left" => isset($this->pivot->upgrade_time) ? now()->diffInSeconds(Carbon::createFromFormat('Y-m-d H:i:s', $this->pivot->upgrade_time)->addMinutes($this->upgrade_duration)) : 0,
+            "has_next" => !is_null($this->getNext()),
         ];
     }
 }
