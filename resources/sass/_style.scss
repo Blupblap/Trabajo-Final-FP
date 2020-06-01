@@ -99,11 +99,14 @@ li {
     }
 
     #woodsman_hut {
-        left: 10%;
-        top: 7rem;
+        left: 12%;
+        top: 5rem;
         width: 20%;
-        height: 8rem;
-        background-color: rgba(15, 250, 7, 0.5);
+        height: 10rem;
+        background-image: url($building-1);
+        background-size: auto;
+        background-repeat: no-repeat;
+        background-position: center;
     }
 
     #mine {

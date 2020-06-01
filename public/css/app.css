@@ -10981,11 +10981,14 @@ li a {
 }
 
 .main-game #woodsman_hut {
-  left: 10%;
-  top: 7rem;
+  left: 12%;
+  top: 5rem;
   width: 20%;
-  height: 8rem;
-  background-color: rgba(15, 250, 7, 0.5);
+  height: 10rem;
+  background-image: url(/images/building.png?ffde502e4b68d7f94c4f154ef839f206);
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .main-game #mine {
