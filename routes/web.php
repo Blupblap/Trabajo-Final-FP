@@ -5,7 +5,7 @@ use App\Http\Controllers\TownsController;
 
 Route::get('/', function () {
     return view('welcome');
-})->middleware('guest');
+})->middleware('guest')->name('welcome');
 
 Route::namespace('App\Http\Controllers')->group(function () {
     Auth::routes(['verify' => true]);

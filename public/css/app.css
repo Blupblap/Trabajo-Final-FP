@@ -10891,6 +10891,27 @@ body {
   font-size: 1.2rem;
 }
 
+.navbar-light .navbar-nav .show > .nav-link {
+  text-shadow: none;
+}
+
+#welcome_title {
+  font-size: 5rem;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  color: white;
+}
+
+#welcome_login_div {
+  margin-top: 5rem;
+}
+
+#welcome_login_div a {
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
 .login-register {
   margin-top: 10%;
 }
@@ -10909,7 +10930,7 @@ body {
   left: 40%;
   top: 40%;
   font-size: 1.2rem;
-  text-shadow: -1px -1px black;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 #town_name {
@@ -10917,7 +10938,7 @@ body {
   text-align: center;
   font-weight: bold;
   color: white;
-  text-shadow: -1px -1px black;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 .main-game {
@@ -10934,12 +10955,8 @@ body {
   position: absolute;
   font-size: 1.2rem;
   color: white;
-  text-shadow: -1px -1px black;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   background-color: rgba(2, 2, 2, 0.3);
-}
-
-.main-game .resources > span:not(:last-child) {
-  margin-right: 1rem;
 }
 
 .main-game #building_info {
@@ -10952,7 +10969,7 @@ body {
   padding-right: 15px;
   background-color: #a37a2d;
   color: white;
-  text-shadow: -1px -1px black;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   z-index: 10;
 }
 
@@ -10972,7 +10989,6 @@ body {
   border-radius: 5px;
   text-align: center;
   font-weight: bold;
-  text-shadow: -1px -1px black;
 }
 
 .main-game #woodsman_hut {
@@ -10980,10 +10996,7 @@ body {
   top: 5rem;
   width: 20%;
   height: 10rem;
-  background-image: url(/images/building.png?ffde502e4b68d7f94c4f154ef839f206);
-  background-size: auto;
-  background-repeat: no-repeat;
-  background-position: center;
+  background-color: rgba(221, 176, 146, 0.753);
 }
 
 .main-game #mine {
