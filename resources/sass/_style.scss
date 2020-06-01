@@ -7,6 +7,27 @@ body {
     font-size: $font-size-larger;
 }
 
+.navbar-light .navbar-nav .show > .nav-link {
+    text-shadow: none;
+}
+
+#welcome_title {
+    font-size: $font-size-title;
+    text-shadow: $text-shadow-black;
+    color: white;
+}
+
+#welcome_login_div {
+    margin-top: 5rem;
+}
+
+#welcome_login_div a {
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    font-size: $font-size-larger;
+}
+
 .login-register {
     margin-top: 10%;
     .card {
@@ -50,9 +71,7 @@ body {
         color: white;
         text-shadow: $text-shadow-black;
         background-color: rgb(2, 2, 2, 0.3);
-        & > span:not(:last-child) {
-            margin-right: 1rem;
-        }
+        
     }
 
     #building_info {
@@ -85,7 +104,6 @@ body {
         border-radius: 5px;
         text-align: center;
         font-weight: bold;
-        text-shadow: $text-shadow-black;
     }
 
     #woodsman_hut {
