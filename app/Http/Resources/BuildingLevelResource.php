@@ -18,9 +18,7 @@ class BuildingLevelResource extends JsonResource
         return [
             "building_level_id" => $this->id,
             "building_id" => $this->building_id,
-            "name" => $this->whenLoaded('building', function () {
-                return $this->building->name;
-            }),
+            "name" => $this->whenLoaded('building', $this->building->name),
             "level" => $this->level,
             "food_per_minute" => $this->food_per_minute,
             "wood_per_minute" => $this->wood_per_minute,

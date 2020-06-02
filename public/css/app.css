@@ -10941,7 +10941,7 @@ body {
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
-.main-game {
+#main-game {
   border: 5px solid black;
   height: 50rem;
   border-radius: 10px;
@@ -10951,7 +10951,7 @@ body {
   position: relative;
 }
 
-.main-game .resources {
+#main-game .resources {
   position: absolute;
   font-size: 1.2rem;
   color: white;
@@ -10959,7 +10959,7 @@ body {
   background-color: rgba(2, 2, 2, 0.3);
 }
 
-.main-game #building_info {
+#main-game #building_info {
   display: none;
   position: absolute;
   bottom: 1rem;
@@ -10973,11 +10973,11 @@ body {
   z-index: 10;
 }
 
-.main-game .building {
+#main-game .building {
   position: absolute;
 }
 
-.main-game .nametag {
+#main-game .nametag {
   display: none;
   position: absolute;
   top: 3rem;
@@ -10991,7 +10991,7 @@ body {
   font-weight: bold;
 }
 
-.main-game #woodsman_hut {
+#main-game #woodsman_hut {
   left: 12%;
   top: 5rem;
   width: 20%;
@@ -10999,7 +10999,7 @@ body {
   background-color: rgba(221, 176, 146, 0.753);
 }
 
-.main-game #mine {
+#main-game #mine {
   left: 0%;
   top: 22rem;
   width: 15%;
@@ -11007,7 +11007,7 @@ body {
   background-color: rgba(138, 138, 126, 0.5);
 }
 
-.main-game #town_hall {
+#main-game #town_hall {
   left: 65%;
   top: 4rem;
   width: 25%;
@@ -11015,7 +11015,7 @@ body {
   background-color: rgba(250, 7, 7, 0.5);
 }
 
-.main-game #fishing_dock {
+#main-game #fishing_dock {
   left: 86%;
   top: 34rem;
   width: 15%;
@@ -11023,7 +11023,7 @@ body {
   background-color: rgba(102, 92, 255, 0.5);
 }
 
-.main-game #alchemist {
+#main-game #alchemist {
   left: 65%;
   top: 37rem;
   width: 15%;
@@ -11031,7 +11031,7 @@ body {
   background-color: rgba(206, 22, 144, 0.5);
 }
 
-.main-game #farm {
+#main-game #farm {
   left: 65%;
   top: 23rem;
   width: 13%;
@@ -11039,7 +11039,7 @@ body {
   background-color: rgba(223, 134, 1, 0.5);
 }
 
-.main-game #merchant {
+#main-game #merchant {
   left: 28%;
   top: 19rem;
   width: 13%;

@@ -1,4 +1,5 @@
 var town_info;
+var ranking;
 var resourcesInterval = null;
 var upgradeTimers = [];
 const ERROR_DEFAULT = $("#game_alert").attr("data-default-error");
@@ -10,8 +11,8 @@ $(document).ready(function () {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
-    if ($(".main-game").length) {
-        getData();
+    if ($("#main-game").length) {
+        getTownData();
 
         $(document).click(function (event) {
             if (!$(event.target).closest($(".building")).length) {
@@ -30,9 +31,13 @@ $(document).ready(function () {
             upgradeBuilding(id);
         });
     }
+
+    if ($("#ranking").length) {
+        getRankingData();
+    }
 });
 
-function getData() {
+function getTownData() {
     $.ajax({
         type: 'GET',
         url: '/ajax/town',
@@ -79,7 +84,7 @@ function paintBuildings() {
             );
         addEvents(buildingDiv);
 
-        $(".main-game").append(buildingDiv)
+        $("#main-game").append(buildingDiv)
         setUpgradeTimer(building);
     });
 }
@@ -107,7 +112,7 @@ function setUpgradeTimer(building) {
             if (info_building_id === building.building_level_id) {
                 hideBuildingInfo();
             }
-            getData();
+            getTownData();
             clearInterval(timer);
         }
 
@@ -225,4 +230,21 @@ function showMessage(msg = ERROR_DEFAULT, isError = true) {
         .fadeIn();
 
     setTimeout(() => $("#game_alert").fadeOut(), 3000);
+}
+
+function getRankingData() {
+    $.ajax({
+        type: 'GET',
+        url: '/ajax/ranking',
+        dataType: "json",
+        success: function (data) {
+            ranking = data;
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            showMessage('Error: ' + textStatus + '. ' + errorThrown);
+        },
+        complete: function () {
+            console.log(ranking);
+        }
+    });
 }
