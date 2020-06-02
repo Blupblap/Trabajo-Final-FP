@@ -22,6 +22,8 @@ return [
     'errorWrongBuildingId' => 'This town does not have a building with id :id',
     'errorAlreadyUpgradingBuilding' => 'Building with id :id is already being upgraded',
     'errorNextLevelNotExists' => 'This building is already at max level',
-    'errorDefault' => 'Something is wrong'
+    'errorDefault' => 'Something is wrong',
+    'ranking' => 'Ranking',
+    'my_town' => 'My town'
 
 ];

@@ -37124,6 +37124,7 @@ if (token) {
 /***/ (function(module, exports) {
 
 var town_info;
+var ranking;
 var resourcesInterval = null;
 var upgradeTimers = [];
 var ERROR_DEFAULT = $("#game_alert").attr("data-default-error");
@@ -37135,8 +37136,8 @@ $(document).ready(function () {
     }
   });
 
-  if ($(".main-game").length) {
-    getData();
+  if ($("#main-game").length) {
+    getTownData();
     $(document).click(function (event) {
       if (!$(event.target).closest($(".building")).length) {
         $('#building_info').slideUp(300);
@@ -37154,9 +37155,13 @@ $(document).ready(function () {
       upgradeBuilding(id);
     });
   }
+
+  if ($("#ranking").length) {
+    getRankingData();
+  }
 });
 
-function getData() {
+function getTownData() {
   $.ajax({
     type: 'GET',
     url: '/ajax/town',
@@ -37196,7 +37201,7 @@ function paintBuildings() {
   town_info.buildings.forEach(function (building) {
     buildingDiv = $(document.createElement("div")).addClass("building").attr("id", building.name.toLowerCase().replace(' ', "_")).attr("data-building-name", building.name).attr("data-id", building.building_level_id).attr("data-upgrading", building.upgrade_time_left > 0).append($(document.createElement("h6")).addClass(building.name.toLowerCase().replace(' ', "_")).text(building.name));
     addEvents(buildingDiv);
-    $(".main-game").append(buildingDiv);
+    $("#main-game").append(buildingDiv);
     setUpgradeTimer(building);
   });
 }
@@ -37226,7 +37231,7 @@ function setUpgradeTimer(building) {
         hideBuildingInfo();
       }
 
-      getData();
+      getTownData();
       clearInterval(timer);
     }
   }, 1000);
@@ -37340,6 +37345,23 @@ function showMessage() {
   setTimeout(function () {
     return $("#game_alert").fadeOut();
   }, 3000);
+}
+
+function getRankingData() {
+  $.ajax({
+    type: 'GET',
+    url: '/ajax/ranking',
+    dataType: "json",
+    success: function success(data) {
+      ranking = data;
+    },
+    error: function error(jqXHR, textStatus, errorThrown) {
+      showMessage('Error: ' + textStatus + '. ' + errorThrown);
+    },
+    complete: function complete() {
+      console.log(ranking);
+    }
+  });
 }
 
 /***/ }),

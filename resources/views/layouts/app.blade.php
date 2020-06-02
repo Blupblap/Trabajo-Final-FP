@@ -27,6 +27,16 @@
                 </button>
                 <div id="navbarContent" class="collapse navbar-collapse">
 
+                    <ul class="navbar-nav">
+                        @auth
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('home') }}">{{ __('custom.my_town') }}</a>
+                        </li>
+                        @endauth
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('ranking') }}">{{ __('custom.ranking') }}</a>
+                        </li>
+                    </ul>
 
                     @if (Route::currentRouteName() !== 'welcome')
                     <ul class="navbar-nav ml-auto">
@@ -67,6 +77,8 @@
 
         <main class="py-4">
             @yield('content')
+            <div id="game_alert" class="alert alert-dismissible text-center" data-default-error="{{ __('custom.errorDefault') }}">
+            </div>
         </main>
     </div>
 </body>
