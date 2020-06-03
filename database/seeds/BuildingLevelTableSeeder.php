@@ -37,7 +37,7 @@ class BuildingLevelTableSeeder extends Seeder
                 'required_gold' => 0,
                 'level_town_hall' => 0,
                 'power' => 0,
-                'sprite' => null,
+                'sprite' => 'ruins.png',
                 'upgrade_duration' => 1,
             ],
             [
@@ -69,7 +69,7 @@ class BuildingLevelTableSeeder extends Seeder
                 'required_gold' => 0,
                 'level_town_hall' => 1,
                 'power' => 20,
-                'sprite' => 'woodsmanhut_1.png',
+                'sprite' => 'woodsmanhut_2.png',
                 'upgrade_duration' => 60,
             ],
             [
@@ -85,7 +85,7 @@ class BuildingLevelTableSeeder extends Seeder
                 'required_gold' => 100,
                 'level_town_hall' => 2,
                 'power' => 50,
-                'sprite' => 'woodsmanhut_1.png',
+                'sprite' => 'woodsmanhut_3.png',
                 'upgrade_duration' => 500,
             ],
             [
@@ -101,7 +101,7 @@ class BuildingLevelTableSeeder extends Seeder
                 'required_gold' => 300,
                 'level_town_hall' => 3,
                 'power' => 60,
-                'sprite' => 'woodsmanhut_1.png',
+                'sprite' => 'woodsmanhut_4.png',
                 'upgrade_duration' => 1000,
             ],
             [
@@ -117,7 +117,7 @@ class BuildingLevelTableSeeder extends Seeder
                 'required_gold' => 700,
                 'level_town_hall' => 4,
                 'power' => 70,
-                'sprite' => 'woodsmanhut_1.png',
+                'sprite' => 'woodsmanhut_5.png',
                 'upgrade_duration' => 1300,
             ],
             [
@@ -133,7 +133,7 @@ class BuildingLevelTableSeeder extends Seeder
                 'required_gold' => 2000,
                 'level_town_hall' => 6,
                 'power' => 100,
-                'sprite' => 'woodsmanhut_1.png',
+                'sprite' => 'woodsmanhut_6.png',
                 'upgrade_duration' => 3600,
             ],
             [
@@ -149,7 +149,7 @@ class BuildingLevelTableSeeder extends Seeder
                 'required_gold' => 4000,
                 'level_town_hall' => 7,
                 'power' => 150,
-                'sprite' => 'woodsmanhut_1.png',
+                'sprite' => 'woodsmanhut_7.png',
                 'upgrade_duration' => 18000,
             ],
             [
@@ -165,7 +165,7 @@ class BuildingLevelTableSeeder extends Seeder
                 'required_gold' => 7000,
                 'level_town_hall' => 8,
                 'power' => 250,
-                'sprite' => 'woodsmanhut_1.png',
+                'sprite' => 'woodsmanhut_8.png',
                 'upgrade_duration' => 86400,
             ]
         ]);
@@ -187,7 +187,7 @@ class BuildingLevelTableSeeder extends Seeder
                 'required_gold' => 0,
                 'level_town_hall' => 0,
                 'power' => 0,
-                'sprite' => null,
+                'sprite' => 'ruins.png',
                 'upgrade_duration' => 1,
             ],
             [
@@ -219,7 +219,7 @@ class BuildingLevelTableSeeder extends Seeder
                 'required_gold' => 0,
                 'level_town_hall' => 1,
                 'power' => 20,
-                'sprite' => 'mine_1.png',
+                'sprite' => 'mine_2.png',
                 'upgrade_duration' => 60,
             ],
             [
@@ -235,7 +235,7 @@ class BuildingLevelTableSeeder extends Seeder
                 'required_gold' => 100,
                 'level_town_hall' => 2,
                 'power' => 50,
-                'sprite' => 'mine_1.png',
+                'sprite' => 'mine_3.png',
                 'upgrade_duration' => 300,
             ],
             [
@@ -251,7 +251,7 @@ class BuildingLevelTableSeeder extends Seeder
                 'required_gold' => 300,
                 'level_town_hall' => 3,
                 'power' => 60,
-                'sprite' => 'mine_1.png',
+                'sprite' => 'mine_4.png',
                 'upgrade_duration' => 1000,
             ],
             [
@@ -267,7 +267,7 @@ class BuildingLevelTableSeeder extends Seeder
                 'required_gold' => 700,
                 'level_town_hall' => 4,
                 'power' => 70,
-                'sprite' => 'mine_1.png',
+                'sprite' => 'mine_5.png',
                 'upgrade_duration' => 1300,
             ],
             [
@@ -283,7 +283,7 @@ class BuildingLevelTableSeeder extends Seeder
                 'required_gold' => 2000,
                 'level_town_hall' => 6,
                 'power' => 100,
-                'sprite' => 'mine_1.png',
+                'sprite' => 'mine_6.png',
                 'upgrade_duration' => 3600,
             ],
             [
@@ -299,7 +299,7 @@ class BuildingLevelTableSeeder extends Seeder
                 'required_gold' => 4000,
                 'level_town_hall' => 7,
                 'power' => 150,
-                'sprite' => 'mine_1.png',
+                'sprite' => 'mine_7.png',
                 'upgrade_duration' => 18000,
             ],
             [
@@ -315,7 +315,7 @@ class BuildingLevelTableSeeder extends Seeder
                 'required_gold' => 700,
                 'level_town_hall' => 8,
                 'power' => 250,
-                'sprite' => 'mine_1.png',
+                'sprite' => 'mine_8.png',
                 'upgrade_duration' => 86400,
             ]
         ]);
@@ -337,7 +337,7 @@ class BuildingLevelTableSeeder extends Seeder
                 'required_gold' => 0,
                 'level_town_hall' => 0,
                 'power' => 0,
-                'sprite' => null,
+                'sprite' => 'ruins.png',
                 'upgrade_duration' => 1,
             ],
             [
@@ -385,7 +385,7 @@ class BuildingLevelTableSeeder extends Seeder
                 'required_gold' => 0,
                 'level_town_hall' => 1,
                 'power' => 30,
-                'sprite' => 'fishingdock_1.png',
+                'sprite' => 'fishingdock_2.png',
                 'upgrade_duration' => 250,
             ],
             [
@@ -401,7 +401,7 @@ class BuildingLevelTableSeeder extends Seeder
                 'required_gold' => 0,
                 'level_town_hall' => 3,
                 'power' => 50,
-                'sprite' => 'fishingdock_1.png',
+                'sprite' => 'fishingdock_3.png',
                 'upgrade_duration' => 1000,
             ],
             [
@@ -417,7 +417,7 @@ class BuildingLevelTableSeeder extends Seeder
                 'required_gold' => 0,
                 'level_town_hall' => 3,
                 'power' => 60,
-                'sprite' => 'fishingdock_1.png',
+                'sprite' => 'fishingdock_4.png',
                 'upgrade_duration' => 3600,
             ],
             [
@@ -433,7 +433,7 @@ class BuildingLevelTableSeeder extends Seeder
                 'required_gold' => 0,
                 'level_town_hall' => 5,
                 'power' => 60,
-                'sprite' => 'fishingdock_1.png',
+                'sprite' => 'fishingdock_5.png',
                 'upgrade_duration' => 3600,
             ],
             [
@@ -449,7 +449,7 @@ class BuildingLevelTableSeeder extends Seeder
                 'required_gold' => 0,
                 'level_town_hall' => 7,
                 'power' => 100,
-                'sprite' => 'fishingdock_1.png',
+                'sprite' => 'fishingdock_6.png',
                 'upgrade_duration' => 18000,
             ],
             [
@@ -465,7 +465,7 @@ class BuildingLevelTableSeeder extends Seeder
                 'required_gold' => 0,
                 'level_town_hall' => 7,
                 'power' => 150,
-                'sprite' => 'fishingdock_1.png',
+                'sprite' => 'fishingdock_7.png',
                 'upgrade_duration' => 18000,
             ],
             [
@@ -481,7 +481,7 @@ class BuildingLevelTableSeeder extends Seeder
                 'required_gold' => 1000,
                 'level_town_hall' => 8,
                 'power' => 200,
-                'sprite' => 'fishingdock_1.png',
+                'sprite' => 'fishingdock_8.png',
                 'upgrade_duration' => 24000,
             ]
         ]);
@@ -503,7 +503,7 @@ class BuildingLevelTableSeeder extends Seeder
                 'required_gold' => 0,
                 'level_town_hall' => 0,
                 'power' => 0,
-                'sprite' => null,
+                'sprite' => 'ruins.png',
                 'upgrade_duration' => 1,
             ],
             [
@@ -535,7 +535,7 @@ class BuildingLevelTableSeeder extends Seeder
                 'required_gold' => 200,
                 'level_town_hall' => 2,
                 'power' => 50,
-                'sprite' => 'farm_1.png',
+                'sprite' => 'farm_2.png',
                 'upgrade_duration' => 600,
             ],
             [
@@ -551,7 +551,7 @@ class BuildingLevelTableSeeder extends Seeder
                 'required_gold' => 500,
                 'level_town_hall' => 2,
                 'power' => 60,
-                'sprite' => 'farm_1.png',
+                'sprite' => 'farm_3.png',
                 'upgrade_duration' => 1200,
             ],
             [
@@ -567,7 +567,7 @@ class BuildingLevelTableSeeder extends Seeder
                 'required_gold' => 900,
                 'level_town_hall' => 4,
                 'power' => 80,
-                'sprite' => 'farm_1.png',
+                'sprite' => 'farm_4.png',
                 'upgrade_duration' => 3600,
             ],
             [
@@ -583,7 +583,7 @@ class BuildingLevelTableSeeder extends Seeder
                 'required_gold' => 1500,
                 'level_town_hall' => 6,
                 'power' => 100,
-                'sprite' => 'farm_1.png',
+                'sprite' => 'farm_5.png',
                 'upgrade_duration' => 7200,
             ],
             [
@@ -599,7 +599,7 @@ class BuildingLevelTableSeeder extends Seeder
                 'required_gold' => 3500,
                 'level_town_hall' => 7,
                 'power' => 130,
-                'sprite' => 'farm_1.png',
+                'sprite' => 'farm_6.png',
                 'upgrade_duration' => 21600,
             ],
             [
@@ -615,7 +615,7 @@ class BuildingLevelTableSeeder extends Seeder
                 'required_gold' => 5500,
                 'level_town_hall' => 7,
                 'power' => 150,
-                'sprite' => 'farm_1.png',
+                'sprite' => 'farm_7.png',
                 'upgrade_duration' => 26600,
             ],
             [
@@ -631,7 +631,7 @@ class BuildingLevelTableSeeder extends Seeder
                 'required_gold' => 7500,
                 'level_town_hall' => 8,
                 'power' => 250,
-                'sprite' => 'farm_1.png',
+                'sprite' => 'farm_8.png',
                 'upgrade_duration' => 172800,
             ]
         ]);
@@ -653,7 +653,7 @@ class BuildingLevelTableSeeder extends Seeder
                 'required_gold' => 700,
                 'level_town_hall' => 2,
                 'power' => 0,
-                'sprite' => null,
+                'sprite' => 'ruins.png',
                 'upgrade_duration' => 700,
             ],
             [
@@ -685,7 +685,7 @@ class BuildingLevelTableSeeder extends Seeder
                 'required_gold' => 1500,
                 'level_town_hall' => 2,
                 'power' => 60,
-                'sprite' => 'alchemist_1.png',
+                'sprite' => 'alchemist_2.png',
                 'upgrade_duration' => 1500,
             ],
             [
@@ -701,7 +701,7 @@ class BuildingLevelTableSeeder extends Seeder
                 'required_gold' => 2000,
                 'level_town_hall' => 2,
                 'power' => 70,
-                'sprite' => 'alchemist_1.png',
+                'sprite' => 'alchemist_3.png',
                 'upgrade_duration' => 1800,
             ],
             [
@@ -717,7 +717,7 @@ class BuildingLevelTableSeeder extends Seeder
                 'required_gold' => 4000,
                 'level_town_hall' => 4,
                 'power' => 80,
-                'sprite' => 'alchemist_1.png',
+                'sprite' => 'alchemist_4.png',
                 'upgrade_duration' => 3600,
             ],
             [
@@ -733,7 +733,7 @@ class BuildingLevelTableSeeder extends Seeder
                 'required_gold' => 5000,
                 'level_town_hall' => 5,
                 'power' => 100,
-                'sprite' => 'alchemist_1.png',
+                'sprite' => 'alchemist_5.png',
                 'upgrade_duration' => 10800,
             ],
             [
@@ -749,7 +749,7 @@ class BuildingLevelTableSeeder extends Seeder
                 'required_gold' => 6000,
                 'level_town_hall' => 6,
                 'power' => 120,
-                'sprite' => 'alchemist_1.png',
+                'sprite' => 'alchemist_6.png',
                 'upgrade_duration' => 10800,
             ],
             [
@@ -765,7 +765,7 @@ class BuildingLevelTableSeeder extends Seeder
                 'required_gold' => 7000,
                 'level_town_hall' => 7,
                 'power' => 140,
-                'sprite' => 'alchemist_1.png',
+                'sprite' => 'alchemist_7.png',
                 'upgrade_duration' => 86400,
             ],
             [
@@ -781,7 +781,7 @@ class BuildingLevelTableSeeder extends Seeder
                 'required_gold' => 8000,
                 'level_town_hall' => 8,
                 'power' => 200,
-                'sprite' => 'alchemist_1.png',
+                'sprite' => 'alchemist_8.png',
                 'upgrade_duration' => 172800,
             ]
         ]);
@@ -803,7 +803,7 @@ class BuildingLevelTableSeeder extends Seeder
                 'required_gold' => 0,
                 'level_town_hall' => 0,
                 'power' => 30,
-                'sprite' => null,
+                'sprite' => 'ruins.png',
                 'upgrade_duration' => 900,
             ],
             [
@@ -835,7 +835,7 @@ class BuildingLevelTableSeeder extends Seeder
                 'required_gold' => 1000,
                 'level_town_hall' => 2,
                 'power' => 30,
-                'sprite' => 'merchant_1.png',
+                'sprite' => 'merchant_2.png',
                 'upgrade_duration' => 1600,
             ],
             [
@@ -851,7 +851,7 @@ class BuildingLevelTableSeeder extends Seeder
                 'required_gold' => 1300,
                 'level_town_hall' => 2,
                 'power' => 50,
-                'sprite' => 'merchant_1.png',
+                'sprite' => 'merchant_3.png',
                 'upgrade_duration' => 1800,
             ],
             [
@@ -867,7 +867,7 @@ class BuildingLevelTableSeeder extends Seeder
                 'required_gold' => 4000,
                 'level_town_hall' => 4,
                 'power' => 80,
-                'sprite' => 'merchant_1.png',
+                'sprite' => 'merchant_4.png',
                 'upgrade_duration' => 3600,
             ],
             [
@@ -883,7 +883,7 @@ class BuildingLevelTableSeeder extends Seeder
                 'required_gold' => 5000,
                 'level_town_hall' => 5,
                 'power' => 100,
-                'sprite' => 'merchant_1.png',
+                'sprite' => 'merchant_5.png',
                 'upgrade_duration' => 10800,
             ],
             [
@@ -899,7 +899,7 @@ class BuildingLevelTableSeeder extends Seeder
                 'required_gold' => 6000,
                 'level_town_hall' => 6,
                 'power' => 120,
-                'sprite' => 'merchant_1.png',
+                'sprite' => 'merchant_6.png',
                 'upgrade_duration' => 10800,
             ],
             [
@@ -915,7 +915,7 @@ class BuildingLevelTableSeeder extends Seeder
                 'required_gold' => 7000,
                 'level_town_hall' => 6,
                 'power' => 140,
-                'sprite' => 'merchant_1.png',
+                'sprite' => 'merchant_7.png',
                 'upgrade_duration' => 86400,
             ],
             [
@@ -931,7 +931,7 @@ class BuildingLevelTableSeeder extends Seeder
                 'required_gold' => 8000,
                 'level_town_hall' => 8,
                 'power' => 200,
-                'sprite' => 'merchant_1.png',
+                'sprite' => 'merchant_8.png',
                 'upgrade_duration' => 172800,
             ]
         ]);
@@ -953,7 +953,7 @@ class BuildingLevelTableSeeder extends Seeder
                 'required_gold' => 0,
                 'level_town_hall' => 0,
                 'power' => 0,
-                'sprite' => null,
+                'sprite' => 'ruins.png',
                 'upgrade_duration' => 60,
             ],
             [
@@ -985,7 +985,7 @@ class BuildingLevelTableSeeder extends Seeder
                 'required_gold' => 1000,
                 'level_town_hall' => 2,
                 'power' => 50,
-                'sprite' => 'townhall_1.png',
+                'sprite' => 'townhall_2.png',
                 'upgrade_duration' => 3600,
             ],
             [
@@ -1001,7 +1001,7 @@ class BuildingLevelTableSeeder extends Seeder
                 'required_gold' => 3000,
                 'level_town_hall' => 3,
                 'power' => 100,
-                'sprite' => 'townhall_1.png',
+                'sprite' => 'townhall_3.png',
                 'upgrade_duration' => 21600,
             ],
             [
@@ -1017,7 +1017,7 @@ class BuildingLevelTableSeeder extends Seeder
                 'required_gold' => 6000,
                 'level_town_hall' => 4,
                 'power' => 200,
-                'sprite' => 'townhall_1.png',
+                'sprite' => 'townhall_4.png',
                 'upgrade_duration' => 43200,
             ],
             [
@@ -1033,7 +1033,7 @@ class BuildingLevelTableSeeder extends Seeder
                 'required_gold' => 10000,
                 'level_town_hall' => 5,
                 'power' => 300,
-                'sprite' => 'townhall_1.png',
+                'sprite' => 'townhall_5.png',
                 'upgrade_duration' => 86400,
             ],
             [
@@ -1049,7 +1049,7 @@ class BuildingLevelTableSeeder extends Seeder
                 'required_gold' => 15000,
                 'level_town_hall' => 6,
                 'power' => 450,
-                'sprite' => 'townhall_1.png',
+                'sprite' => 'townhall_6.png',
                 'upgrade_duration' => 172800,
             ],
             [
@@ -1065,7 +1065,7 @@ class BuildingLevelTableSeeder extends Seeder
                 'required_gold' => 20000,
                 'level_town_hall' => 7,
                 'power' => 600,
-                'sprite' => 'townhall_1.png',
+                'sprite' => 'townhall_7.png',
                 'upgrade_duration' => 345600,
             ],
             [
@@ -1081,7 +1081,7 @@ class BuildingLevelTableSeeder extends Seeder
                 'required_gold' => 40000,
                 'level_town_hall' => 8,
                 'power' => 1000,
-                'sprite' => 'townhall_1.png',
+                'sprite' => 'townhall_8.png',
                 'upgrade_duration' => 604800,
             ]
         ]);

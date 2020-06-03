@@ -10980,10 +10980,7 @@ body {
   top: 5rem;
   width: 20%;
   height: 10rem;
-  background-image: url(/images/building.png?ffde502e4b68d7f94c4f154ef839f206);
-  background-size: auto;
-  background-repeat: no-repeat;
-  background-position: center;
+  background-color: rgba(221, 176, 146, 0.753);
 }
 
 .main-game #mine {
