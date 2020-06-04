@@ -5,12 +5,20 @@ var upgradeTimers = [];
 const ERROR_DEFAULT = $("#game_alert").attr("data-default-error");
 const FREQUENCY_RESOURCES_UPDATE = 60000;
 
+$(document).ajaxStart(function () {
+    $("#loading").css("display", "block");
+});
+$(document).ajaxComplete(function () {
+    $("#loading").css("display", "none");
+});
+
 $(document).ready(function () {
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
+
     if ($("#main-game").length) {
         getTownData();
 
@@ -38,6 +46,7 @@ $(document).ready(function () {
 });
 
 function getTownData() {
+    clearUpgradeTimers();
     $.ajax({
         type: 'GET',
         url: '/ajax/town',
@@ -70,9 +79,8 @@ function paintResources() {
 
 function paintBuildings() {
     $(".building").remove();
-    clearUpgradeTimers();
     town_info.buildings.forEach(building => {
-        buildingDiv = $(document.createElement("div"))
+        let buildingDiv = $(document.createElement("div"))
             .addClass("building")
             .attr("id", building.name.toLowerCase().replace(' ', "_"))
             .attr("data-building-name", building.name)
@@ -113,7 +121,6 @@ function setUpgradeTimer(building) {
                 hideBuildingInfo();
             }
             getTownData();
-            clearInterval(timer);
         }
 
     }, 1000);
@@ -202,6 +209,7 @@ function formatTime(timeSeconds) {
 function upgradeBuilding(id) {
     const url = '/ajax/building';
     const dataToSend = { 'building_level_id': id };
+    clearUpgradeTimers();
     $.ajax({
         type: 'PUT',
         url: url,
@@ -244,7 +252,28 @@ function getRankingData() {
             showMessage('Error: ' + textStatus + '. ' + errorThrown);
         },
         complete: function () {
-            console.log(ranking);
+            paintRanking();
         }
+    });
+}
+
+function paintRanking() {
+    let tableContent = $("#ranking table>tbody");
+    ranking.forEach(function (user, index) {
+        let row = $(document.createElement("tr"))
+            .append($(document.createElement("th"))
+                .attr("scope", "row")
+                .text(index + 1)
+            )
+            .append($(document.createElement("td"))
+                .text(user.name)
+            )
+            .append($(document.createElement("td"))
+                .text(user.town_name)
+            )
+            .append($(document.createElement("td"))
+                .text(user.score)
+            );
+        tableContent.append(row);
     });
 }

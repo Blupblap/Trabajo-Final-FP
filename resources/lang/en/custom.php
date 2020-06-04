@@ -2,9 +2,9 @@
 
 return [
 
-    'town_name_title' => 'Choose your town name',
-    'town_name_label' => 'Town name',
-    'town_name_confirm' => 'Confirm',
+    'choose_town_name' => 'Choose your town name',
+    'town_name' => 'Town name',
+    'confirm' => 'Confirm',
     'food' => 'Food',
     'wood' => 'Wood',
     'stone' => 'Stone',
@@ -12,6 +12,8 @@ return [
     'name' => 'Name',
     'level' => 'Level',
     'power' => 'Power',
+    'player' => 'Player',
+    'score' => 'Score',
     'next_level' => 'Next level',
     'th_level' => 'Town Hall level',
     'construction_duration' => 'Construction duration',
