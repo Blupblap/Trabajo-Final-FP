@@ -36,6 +36,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('ranking') }}">{{ __('custom.ranking') }}</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('about') }}">{{ __('custom.about') }}</a>
+                        </li>
                     </ul>
 
                     @if (Route::currentRouteName() !== 'welcome')
