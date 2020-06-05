@@ -37129,6 +37129,12 @@ var resourcesInterval = null;
 var upgradeTimers = [];
 var ERROR_DEFAULT = $("#game_alert").attr("data-default-error");
 var FREQUENCY_RESOURCES_UPDATE = 60000;
+$(document).ajaxStart(function () {
+  $("#loading").css("display", "block");
+});
+$(document).ajaxComplete(function () {
+  $("#loading").css("display", "none");
+});
 $(document).ready(function () {
   $.ajaxSetup({
     headers: {
@@ -37162,6 +37168,7 @@ $(document).ready(function () {
 });
 
 function getTownData() {
+  clearUpgradeTimers();
   $.ajax({
     type: 'GET',
     url: '/ajax/town',
@@ -37197,9 +37204,8 @@ function paintResources() {
 
 function paintBuildings() {
   $(".building").remove();
-  clearUpgradeTimers();
   town_info.buildings.forEach(function (building) {
-    buildingDiv = $(document.createElement("div")).addClass("building").attr("id", building.name.toLowerCase().replace(' ', "_")).attr("data-building-name", building.name).attr("data-id", building.building_level_id).attr("data-upgrading", building.upgrade_time_left > 0).append($(document.createElement("h6")).addClass(building.name.toLowerCase().replace(' ', "_")).text(building.name));
+    var buildingDiv = $(document.createElement("div")).addClass("building").attr("id", building.name.toLowerCase().replace(' ', "_")).attr("data-building-name", building.name).attr("data-id", building.building_level_id).attr("data-upgrading", building.upgrade_time_left > 0).append($(document.createElement("h6")).addClass(building.name.toLowerCase().replace(' ', "_")).text(building.name));
     addEvents(buildingDiv);
     $("#main-game").append(buildingDiv);
     setUpgradeTimer(building);
@@ -37232,7 +37238,6 @@ function setUpgradeTimer(building) {
       }
 
       getTownData();
-      clearInterval(timer);
     }
   }, 1000);
   upgradeTimers.push(timer);
@@ -37316,6 +37321,7 @@ function upgradeBuilding(id) {
   var dataToSend = {
     'building_level_id': id
   };
+  clearUpgradeTimers();
   $.ajax({
     type: 'PUT',
     url: url,
@@ -37359,8 +37365,16 @@ function getRankingData() {
       showMessage('Error: ' + textStatus + '. ' + errorThrown);
     },
     complete: function complete() {
-      console.log(ranking);
+      paintRanking();
     }
+  });
+}
+
+function paintRanking() {
+  var tableContent = $("#ranking table>tbody");
+  ranking.forEach(function (user, index) {
+    var row = $(document.createElement("tr")).append($(document.createElement("th")).attr("scope", "row").text(index + 1)).append($(document.createElement("td")).text(user.name)).append($(document.createElement("td")).text(user.town_name)).append($(document.createElement("td")).text(user.score));
+    tableContent.append(row);
   });
 }
 
