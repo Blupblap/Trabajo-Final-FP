@@ -20,6 +20,10 @@ $green: #38c172;
 $teal: #4dc0b5;
 $cyan: #6cb2eb;
 
+$primary: $green;
+$secondary: #AF8644;
+$transparent-secondary: rgba(175, 134, 68, 0.8);
+
 $text-shadow-black: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 
 $bg-image: "../images/bg.png";
@@ -27,7 +31,7 @@ $game-bg: "../images/mapa.jpg";
 $imagen-papiro: "../images/papyr.jpg";
 $gif-loading: "../images/loading.gif";
 
-$navbar-light-color: white;
+$navbar-light-color: black;
 $navbar-light-hover-color: $red;
 
 $table-border-color: black;

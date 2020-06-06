@@ -19,7 +19,7 @@
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light shadow-sm bg-transparent-secondary">
             <div class="container">
                 <a class="navbar-brand text-bold" href="{{ route('welcome') }}"><b>{{ config('app.name', 'Laravel') }}</b></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">

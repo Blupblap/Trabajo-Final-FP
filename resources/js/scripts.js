@@ -163,12 +163,12 @@ function showBuildingInfo(buildingId) {
     $("#gold_cost").html(building.required_gold);
     $("#th_req").html(building.level_town_hall);
     $("#construction_duration").html(formatTime(building.upgrade_duration * 60));
-    $('#next_level').css("display", building.has_next > 0 ? "block" : "none");
+    $('#next_level').css("display", building.has_next ? "block" : "none");
 
     $('#time_left').html(formatTime(building.upgrade_time_left));
     $('#time_left_container').css("display", building.upgrade_time_left > 0 ? "inline" : "none");
 
-    $('#upgrade_button').attr("disabled", building.upgrade_time_left > 0);
+    $('#upgrade_button').attr("disabled", !building.has_next || building.upgrade_time_left > 0);
 
     $("#building_info").attr("data-buildingid", buildingId).modal('show');
 }

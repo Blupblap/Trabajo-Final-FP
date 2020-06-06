@@ -1,7 +1,10 @@
 body {
     height: 100vh;
     background-image: url($bg-image);
+}
 
+.bg-transparent-secondary {
+    background-color: $transparent-secondary;
 }
 
 .nav-link {
@@ -43,10 +46,11 @@ body {
 #game_alert {
     display: none;
     position: absolute;
-    left: 40%;
-    top: 40%;
+    left: 0;
+    top: 0;
     font-size: $font-size-larger;
     text-shadow: $text-shadow-black;
+    z-index: 9999;
 }
 
 #loading {
@@ -90,10 +94,11 @@ body {
     background-size: 100% 100%;
     position: relative;
 
-    #building_info .modal-content {
-        background-color: rgb(163, 122, 45);
-        color: white;
-        text-shadow: $text-shadow-black;
+    #building_info {
+        .modal-content {
+            //background-color: rgb(163, 122, 45);
+            background-image: url($imagen-papiro);
+        }
     }
 
     .nametag {
@@ -175,4 +180,7 @@ body {
     border-radius: 5px;
     padding: 2rem;
     font-weight: bold;
+    p {
+        text-align: center;
+    }
 }
