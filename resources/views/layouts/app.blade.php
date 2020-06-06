@@ -82,6 +82,8 @@
             @yield('content')
             <div id="game_alert" class="alert alert-dismissible text-center" data-default-error="{{ __('custom.errorDefault') }}">
             </div>
+            <div id="loading">
+            </div>
         </main>
     </div>
 </body>

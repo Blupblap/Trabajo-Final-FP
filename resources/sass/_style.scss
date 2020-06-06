@@ -50,12 +50,27 @@ body {
     text-shadow: $text-shadow-black;
 }
 
+#loading {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.8) url($gif-loading) 50% 50% no-repeat;
+}
+
 #town_name {
     width: 100%;
     text-align: center;
     font-weight: bold;
     color: white;
     text-shadow: $text-shadow-black;
+}
+
+#ranking {
+    background-image: url($imagen-papiro);
 }
 
 #main-game {
@@ -73,7 +88,6 @@ body {
         color: white;
         text-shadow: $text-shadow-black;
         background-color: rgb(2, 2, 2, 0.3);
-        
     }
 
     #building_info {
