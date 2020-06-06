@@ -10884,9 +10884,7 @@ a.text-dark:focus {
 
 body {
   height: 100vh;
-  background-image: url(/images/bg.jpg?4087e87ded7881593e8ef4d99b05e214);
-  background-color: #444444;
-  background-repeat: no-repeat;
+  background-image: url(/images/bg.png?7795749b7db7c187b3a847bf9af13988);
 }
 
 .nav-link {
