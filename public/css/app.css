@@ -10958,6 +10958,12 @@ body {
   background-image: url(/images/papyr.jpg?a1bb209feed8220fcf5627c8580456c9);
 }
 
+.container .resources {
+  font-size: 1.2rem;
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
 #main-game {
   border: 5px solid black;
   height: 50vw;
@@ -10969,14 +10975,6 @@ body {
   background-repeat: no-repeat;
   background-size: 100% 100%;
   position: relative;
-}
-
-#main-game .resources {
-  position: absolute;
-  font-size: 1.2rem;
-  color: white;
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-  background-color: rgba(2, 2, 2, 0.3);
 }
 
 #main-game #building_info .modal-content {

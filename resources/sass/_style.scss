@@ -73,6 +73,13 @@ body {
     background-image: url($imagen-papiro);
 }
 
+.container .resources {
+    font-size: $font-size-larger;
+    color: white;
+    text-shadow: $text-shadow-black;
+}
+
+
 #main-game {
     border: 5px solid black;
     height: 50vw;
@@ -84,14 +91,6 @@ body {
     background-repeat: no-repeat;
     background-size: 100% 100%;
     position: relative;
-
-    .resources {
-        position: absolute;
-        font-size: $font-size-larger;
-        color: white;
-        text-shadow: $text-shadow-black;
-        background-color: rgb(2, 2, 2, 0.3);
-    }
 
     #building_info .modal-content {
         background-color: rgb(163, 122, 45);

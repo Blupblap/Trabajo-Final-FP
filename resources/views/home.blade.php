@@ -5,14 +5,13 @@
     <h2>{{ Auth::user()->town->name }}</h2>
 </div>
 <div class="container">
+    <div class="resources mt-2 py-1 px-3 font-weight-bold">
+        <span>{{ __('custom.food') }}: <span id="amount_food"></span></span>
+        <span>{{ __('custom.wood') }}: <span id="amount_wood"></span></span>
+        <span>{{ __('custom.stone') }}: <span id="amount_stone"></span></span>
+        <span>{{ __('custom.gold') }}: <span id="amount_gold"></span></span>
+    </div>
     <div id="main-game">
-        <div class="resources mt-2 py-1 px-3 font-weight-bold">
-            <span>{{ __('custom.food') }}: <span id="amount_food"></span></span>
-            <span>{{ __('custom.wood') }}: <span id="amount_wood"></span></span>
-            <span>{{ __('custom.stone') }}: <span id="amount_stone"></span></span>
-            <span>{{ __('custom.gold') }}: <span id="amount_gold"></span></span>
-        </div>
-
         <div class="nametag"></div>
 
         <div class="modal fade" id="building_info" tabindex="-1" role="dialog" aria-labelledby="building_info_title" aria-hidden="true">
