@@ -75,7 +75,10 @@ body {
 
 #main-game {
     border: 5px solid black;
-    height: 50rem;
+    height: 50vw;
+    width: 100%;
+    max-width: 1000px;
+    max-height: 765px;
     border-radius: 10px;
     background-image: url($game-bg);
     background-repeat: no-repeat;
@@ -104,10 +107,6 @@ body {
         z-index: 10;
     }
 
-    .building {
-        position: absolute;
-    }
-
     .nametag {
         display: none;
         position: absolute;
@@ -122,64 +121,67 @@ body {
         font-weight: bold;
     }
 
+    .building {
+        position: absolute;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        img {
+            width: 100%;
+        }
+    }
+
     #woodsman_hut {
-        left: 12%;
-        top: 5rem;
-        width: 20%;
-        height: 10rem;
-        background-color: rgba(221, 176, 146, 0.753);
+        left: 18%;
+        top: 13%;
+        width: 11%;
+        height: 17%;
     }
 
     #mine {
         left: 0%;
-        top: 22rem;
-        width: 15%;
-        height: 10rem;
-        background-color: rgba(138, 138, 126, 0.5);
+        top: 47%;
+        width: 10%;
+        height: 18%;
     }
 
     #town_hall {
-        left: 65%;
-        top: 4rem;
-        width: 25%;
-        height: 12rem;
-        background-color: rgba(250, 7, 7, 0.5);
+        left: 71%;
+        top: 6%;
+        width: 12%;
+        height: 24%;
     }
 
     #fishing_dock {
-        left: 86%;
-        top: 34rem;
-        width: 15%;
-        height: 5rem;
-        background-color: rgba(102, 92, 255, 0.5);
+        left: 89%;
+        top: 55%;
+        width: 11%;
+        height: 22%;
     }
 
     #alchemist {
         left: 65%;
-        top: 37rem;
-        width: 15%;
-        height: 5rem;
-        background-color: rgba(206, 22, 144, 0.5);
+        top: 61%;
+        width: 11%;
+        height: 25%;
     }
 
     #farm {
-        left: 65%;
-        top: 23rem;
+        left: 64%;
+        top: 35%;
         width: 13%;
-        height: 7rem;
-        background-color: rgba(223, 134, 1, 0.5);
+        height: 25%;
     }
 
     #merchant {
-        left: 28%;
-        top: 19rem;
-        width: 13%;
-        height: 7rem;
-        background-color: rgba(229, 255, 0, 0.5);
+        left: 29%;
+        top: 30%;
+        width: 12%;
+        height: 24%;
     }
 }
 
-#about{
+#about {
     background-image: url($imagen-papiro);
     border-radius: 5px;
     padding: 2rem;

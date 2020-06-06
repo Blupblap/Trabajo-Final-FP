@@ -15,7 +15,7 @@
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('custom.town_name') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" maxlength="30" required autofocus>
+                                <input id="name" type="text" class="form-control" name="name" maxlength="20" required autofocus>
 
                                 @error('name')
                                 <div class="alert alert-danger">{{ $message }}</div>

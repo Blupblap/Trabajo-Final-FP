@@ -86,10 +86,8 @@ function paintBuildings() {
             .attr("data-building-name", building.name)
             .attr("data-id", building.building_level_id)
             .attr("data-upgrading", building.upgrade_time_left > 0)
-            .append($(document.createElement("h6"))
-                .addClass(building.name.toLowerCase().replace(' ', "_"))
-                .text(building.name)
-            );
+            .css('background-image', 'url(../images/buildings/' + building.sprite + ')');
+
         addEvents(buildingDiv);
 
         $("#main-game").append(buildingDiv)
