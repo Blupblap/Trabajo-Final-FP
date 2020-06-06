@@ -10958,7 +10958,7 @@ body {
   background-image: url(/images/papyr.jpg?a1bb209feed8220fcf5627c8580456c9);
 }
 
-.container .resources {
+#resources {
   font-size: 1.2rem;
   color: white;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;

@@ -73,12 +73,11 @@ body {
     background-image: url($imagen-papiro);
 }
 
-.container .resources {
+#resources {
     font-size: $font-size-larger;
     color: white;
     text-shadow: $text-shadow-black;
 }
-
 
 #main-game {
     border: 5px solid black;
