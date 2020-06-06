@@ -10885,6 +10885,8 @@ a.text-dark:focus {
 body {
   height: 100vh;
   background-image: url(/images/bg.jpg?4087e87ded7881593e8ef4d99b05e214);
+  background-color: #444444;
+  background-repeat: no-repeat;
 }
 
 .nav-link {
@@ -11060,5 +11062,12 @@ body {
   width: 13%;
   height: 7rem;
   background-color: rgba(229, 255, 0, 0.5);
+}
+
+#about {
+  background-image: url(/images/papyr.jpg?a1bb209feed8220fcf5627c8580456c9);
+  border-radius: 5px;
+  padding: 2rem;
+  font-weight: bold;
 }
 

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RankingController;
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\TownsController;
 
 Route::get('/', function () {
@@ -19,3 +20,5 @@ Route::get('/town_name', [TownsController::class, 'edit'])->middleware(['auth', 
 Route::post('/town_name', [TownsController::class, 'update'])->middleware(['auth', 'verified']);
 
 Route::get('/ranking', RankingController::class)->name('ranking');
+
+Route::get('/about', AboutController::class)->name('about');

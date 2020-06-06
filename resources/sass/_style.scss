@@ -1,6 +1,8 @@
 body {
     height: 100vh;
     background-image: url($bg-image);
+    background-color: rgb(68, 68, 68);
+    background-repeat: no-repeat;
 }
 
 .nav-link {
@@ -175,4 +177,11 @@ body {
         height: 7rem;
         background-color: rgba(229, 255, 0, 0.5);
     }
+}
+
+#about{
+    background-image: url($imagen-papiro);
+    border-radius: 5px;
+    padding: 2rem;
+    font-weight: bold;
 }
