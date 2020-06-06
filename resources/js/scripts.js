@@ -22,12 +22,9 @@ $(document).ready(function () {
     if ($("#main-game").length) {
         getTownData();
 
-        $(document).click(function (event) {
-            if (!$(event.target).closest($(".building")).length) {
-                $('#building_info').slideUp(300);
-                $('#building_info').attr("data-buildingid", "");
-            }
-        });
+        $('#building_info').on('hide.bs.modal', function (e) {
+            $(this).attr("data-buildingid", "");
+        })
 
         $("#upgrade_button").click(function () {
             let id = $('#building_info').attr("data-buildingid");
@@ -132,7 +129,7 @@ function addEvents(building) {
         $(".nametag").hide(100);
     });
     building.click(function () {
-        toggleBuildingInfo(parseInt($(this).attr('data-id')));
+        showBuildingInfo(parseInt($(this).attr('data-id')));
     });
 }
 
@@ -149,46 +146,35 @@ function animateResources() {
     }, FREQUENCY_RESOURCES_UPDATE);
 }
 
-function toggleBuildingInfo(buildingId) {
-    if (parseInt($("#building_info").attr("data-buildingid")) === buildingId) {
-        hideBuildingInfo();
-        return;
-    }
-
-    showBuildingInfo(buildingId);
-}
-
 function showBuildingInfo(buildingId) {
-    $("#building_info").slideUp(300, function () {
-        const building = town_info.buildings.find(b => b.building_level_id === buildingId);
+    const building = town_info.buildings.find(b => b.building_level_id === buildingId);
 
-        $("#info_name").html(building.name);
-        $("#info_level").html(building.level);
-        $("#food_per_minute").html(building.food_per_minute);
-        $("#wood_per_minute").html(building.wood_per_minute);
-        $("#stone_per_minute").html(building.stone_per_minute);
-        $("#gold_per_minute").html(building.gold_per_minute);
-        $("#info_power").html(building.power);
+    $("#info_name").html(building.name);
+    $("#info_level").html(building.level);
+    $("#food_per_minute").html(building.food_per_minute);
+    $("#wood_per_minute").html(building.wood_per_minute);
+    $("#stone_per_minute").html(building.stone_per_minute);
+    $("#gold_per_minute").html(building.gold_per_minute);
+    $("#info_power").html(building.power);
 
-        $("#food_cost").html(building.required_food);
-        $("#wood_cost").html(building.required_wood);
-        $("#stone_cost").html(building.required_stone);
-        $("#gold_cost").html(building.required_gold);
-        $("#th_req").html(building.level_town_hall);
-        $("#construction_duration").html(formatTime(building.upgrade_duration * 60));
-        $('#next_level').css("display", building.has_next > 0 ? "block" : "none");
+    $("#food_cost").html(building.required_food);
+    $("#wood_cost").html(building.required_wood);
+    $("#stone_cost").html(building.required_stone);
+    $("#gold_cost").html(building.required_gold);
+    $("#th_req").html(building.level_town_hall);
+    $("#construction_duration").html(formatTime(building.upgrade_duration * 60));
+    $('#next_level').css("display", building.has_next > 0 ? "block" : "none");
 
-        $('#time_left').html(formatTime(building.upgrade_time_left));
-        $('#time_left_container').css("display", building.upgrade_time_left > 0 ? "inline" : "none");
+    $('#time_left').html(formatTime(building.upgrade_time_left));
+    $('#time_left_container').css("display", building.upgrade_time_left > 0 ? "inline" : "none");
 
-        $('#upgrade_button').attr("disabled", building.upgrade_time_left > 0);
+    $('#upgrade_button').attr("disabled", building.upgrade_time_left > 0);
 
-        $(this).attr("data-buildingid", buildingId).slideDown(300);
-    });
+    $("#building_info").attr("data-buildingid", buildingId).modal('show');
 }
 
 function hideBuildingInfo() {
-    $("#building_info").attr("data-buildingid", "").slideUp(300);
+    $("#building_info").modal('hide');
 }
 
 function formatTime(timeSeconds) {
@@ -207,6 +193,7 @@ function formatTime(timeSeconds) {
 function upgradeBuilding(id) {
     const url = '/ajax/building';
     const dataToSend = { 'building_level_id': id };
+    hideBuildingInfo();
     clearUpgradeTimers();
     $.ajax({
         type: 'PUT',

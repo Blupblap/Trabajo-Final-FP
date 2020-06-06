@@ -10979,18 +10979,10 @@ body {
   background-color: rgba(2, 2, 2, 0.3);
 }
 
-#main-game #building_info {
-  display: none;
-  position: absolute;
-  bottom: 1rem;
-  left: 30%;
-  min-width: 300px;
-  padding-left: 15px;
-  padding-right: 15px;
+#main-game #building_info .modal-content {
   background-color: #a37a2d;
   color: white;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-  z-index: 10;
 }
 
 #main-game .nametag {

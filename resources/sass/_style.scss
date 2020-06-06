@@ -93,18 +93,10 @@ body {
         background-color: rgb(2, 2, 2, 0.3);
     }
 
-    #building_info {
-        display: none;
-        position: absolute;
-        bottom: 1rem;
-        left: 30%;
-        min-width: 300px;
-        padding-left: 15px;
-        padding-right: 15px;
+    #building_info .modal-content {
         background-color: rgb(163, 122, 45);
         color: white;
         text-shadow: $text-shadow-black;
-        z-index: 10;
     }
 
     .nametag {
