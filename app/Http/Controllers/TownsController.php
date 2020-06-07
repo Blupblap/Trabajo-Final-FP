@@ -14,7 +14,7 @@ class TownsController
     public function update(Request $request)
     {
         $validatedData = $request->validate([
-            'name' => 'required|max:30',
+            'name' => 'required|max:20',
         ]);
 
         $request->user()->town->update($validatedData);
