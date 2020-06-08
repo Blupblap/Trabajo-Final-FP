@@ -4,13 +4,12 @@ namespace App\Http\Controllers\Ajax;
 
 use App\Http\Resources\UserResource;
 use App\User;
-use Illuminate\Http\Request;
 
 final class RankingController
 {
-    public function show(Request $request)
+    public function show()
     {
-        $users = UserResource::collection(User::all());
+        $users = collect(UserResource::collection(User::all()))->sortByDesc('score')->values()->all();
 
         return response()->json($users);
     }
